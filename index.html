@@ -718,9 +718,9 @@
     }
     .quickbar-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 1rem;
-      max-width: 980px; margin: 0 auto;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .85rem;
+      max-width: 1100px; margin: 0 auto;
     }
     @media (max-width: 860px) { .quickbar-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 480px) { .quickbar-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -2607,12 +2607,13 @@
     .hero-seal { top: 1.8rem; right: 2.2rem; }
     .hero-seal-frame img { width: 100px; height: 100px; }
     .hero-admision { top: 3rem; right: 13rem; }
-    .hero-strip { height: 130px; margin: -.5rem 0 0; }
-    .quickbar { padding: .5rem 1.5rem; }
-    .quickbar-title { margin-bottom: .5rem; }
-    .qacard { padding: .6rem .4rem; gap: .35rem; }
-    .qacard-icon { width: 40px; height: 40px; font-size: 1.1rem; border-radius: 10px; }
-    .qacard-label { font-size: .64rem; }
+    .hero-strip { height: 120px; margin: -.5rem 0 0; }
+    .quickbar { padding: .4rem 1.5rem .5rem; }
+    .quickbar-title { margin-bottom: .4rem; }
+    .quickbar-grid { gap: .55rem; }
+    .qacard { padding: .5rem .35rem; gap: .28rem; }
+    .qacard-icon { width: 34px; height: 34px; font-size: .95rem; border-radius: 8px; }
+    .qacard-label { font-size: .6rem; line-height: 1.25; }
   }
 
 /* ── View Navigation System ── */
@@ -2836,33 +2837,53 @@
 <div class="quickbar">
   <p class="quickbar-title">Accesos Rapidos</p>
   <div class="quickbar-grid">
-    <a href="#familias" class="qacard" onclick="showView('familias');return false;">
-      <div class="qacard-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-      <span class="qacard-label">Lirmi Familia</span>
+    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-landmark"></i></div>
+      <span class="qacard-label">Nuestra Historia</span>
+    </a>
+    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-scroll"></i></div>
+      <span class="qacard-label">Proyecto Educativo</span>
+    </a>
+    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-people-group"></i></div>
+      <span class="qacard-label">Comunidad Educativa</span>
+    </a>
+    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-calendar-check"></i></div>
+      <span class="qacard-label">Año Escolar</span>
+    </a>
+    <a href="#novedades" class="qacard" onclick="showView('novedades');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-newspaper"></i></div>
+      <span class="qacard-label">Noticias</span>
+    </a>
+    <a href="#novedades" class="qacard" onclick="showView('novedades');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-images"></i></div>
+      <span class="qacard-label">Galerias de Fotos</span>
+    </a>
+    <a href="#infraestructura" class="qacard" onclick="showView('infraestructura');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-building"></i></div>
+      <span class="qacard-label">Infraestructura</span>
     </a>
     <a href="#alumnos" class="qacard" onclick="showView('alumnos');return false;">
-      <div class="qacard-icon"><i class="fa-solid fa-calendar-days"></i></div>
-      <span class="qacard-label">Horarios</span>
-    </a>
-    <a href="#academico" class="qacard" onclick="showView('academico');return false;">
-      <div class="qacard-icon"><i class="fa-solid fa-file-lines"></i></div>
-      <span class="qacard-label">Circulares</span>
-    </a>
-    <a href="#actividades" class="qacard" onclick="showView('actividades');return false;">
-      <div class="qacard-icon"><i class="fa-solid fa-handshake"></i></div>
-      <span class="qacard-label">Taller PACMA</span>
+      <div class="qacard-icon"><i class="fa-solid fa-user-graduate"></i></div>
+      <span class="qacard-label">Estudiantes</span>
     </a>
     <a href="#actividades" class="qacard" onclick="showView('actividades');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-palette"></i></div>
-      <span class="qacard-label">Talleres Extraesc.</span>
+      <span class="qacard-label">Talleres Extraescolares</span>
     </a>
-    <a href="https://minutaspublicas.junaeb.cl/minutaspub/xhtml/minutasPublicas/index.xhtml" target="_blank" rel="noopener" class="qacard">
-      <div class="qacard-icon"><i class="fa-solid fa-utensils"></i></div>
-      <span class="qacard-label">Minutas JUNAEB</span>
+    <a href="#familias" class="qacard" onclick="showView('familias');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-users"></i></div>
+      <span class="qacard-label">Apoderados</span>
     </a>
-    <a href="#participacion" class="qacard" onclick="showView('participacion');return false;">
-      <div class="qacard-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-      <span class="qacard-label">Sugerencias</span>
+    <a href="#academico" class="qacard" onclick="showView('academico');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-book"></i></div>
+      <span class="qacard-label">Catalogo Biblioteca</span>
+    </a>
+    <a href="#academico" class="qacard" onclick="showView('academico');return false;">
+      <div class="qacard-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <span class="qacard-label">Recursos Educativos</span>
     </a>
   </div>
 </div>
