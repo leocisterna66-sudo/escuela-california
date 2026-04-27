@@ -2873,11 +2873,11 @@
       <div class="qacard-icon"><i class="fa-solid fa-landmark"></i></div>
       <span class="qacard-label">Nuestra Historia</span>
     </a>
-    <a href="#quienes-somos" class="qacard" onclick="goTo('quienes-somos','quienes-somos');return false;">
+    <a href="#quienes-somos" class="qacard" onclick="goTo('quienes-somos','quienes-somos-info',['equipo-trabajo']);return false;">
       <div class="qacard-icon"><i class="fa-solid fa-scroll"></i></div>
       <span class="qacard-label">Proyecto Educativo</span>
     </a>
-    <a href="#equipo-trabajo" class="qacard" onclick="goTo('quienes-somos','equipo-trabajo');return false;">
+    <a href="#equipo-trabajo" class="qacard" onclick="goTo('quienes-somos','equipo-trabajo',['quienes-somos-info']);return false;">
       <div class="qacard-icon"><i class="fa-solid fa-people-group"></i></div>
       <span class="qacard-label">Comunidad Educativa</span>
     </a>
@@ -2901,7 +2901,7 @@
       <div class="qacard-icon"><i class="fa-solid fa-user-graduate"></i></div>
       <span class="qacard-label">Estudiantes</span>
     </a>
-    <a href="#talleres" class="qacard" onclick="goTo('actividades','talleres');return false;">
+    <a href="#pacma" class="qacard" onclick="showView('actividades');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-palette"></i></div>
       <span class="qacard-label">Talleres Extraescolares</span>
     </a>
@@ -2965,6 +2965,7 @@
 <div class="view" id="view-quienes-somos">
 <section id="quienes-somos">
   <div class="section-inner">
+    <div id="quienes-somos-info">
     <div class="section-eyebrow">Proyecto Educativo Institucional</div>
     <h2 class="section-title">Quienes Somos</h2>
     <div class="section-line"></div>
@@ -3115,6 +3116,8 @@
         <span class="btn-doc-badge">PDF</span>
       </a>
     </div>
+
+    </div><!-- /quienes-somos-info -->
 
     <!-- EQUIPO HUMANO -->
     <div class="equipo-section" id="equipo-trabajo">
@@ -4839,7 +4842,7 @@
     'familias':'Familias','actividades':'Actividades','participacion':'Participación'
   };
 
-  function goTo(viewId, sectionId) {
+  function goTo(viewId, sectionId, hideIds) {
     showView(viewId);
     if (!sectionId) return;
     const view   = document.getElementById('view-' + viewId);
@@ -4849,13 +4852,21 @@
     view.querySelectorAll(':scope > section').forEach(sec => {
       sec.style.display = (sec === target || sec.contains(target)) ? '' : 'none';
     });
+    // Ocultar sub-elementos adicionales dentro de la sección
+    if (hideIds) {
+      hideIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.display = 'none'; el.dataset.gotoHidden = '1'; }
+      });
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   function showView(id) {
     if (!document.getElementById('view-' + id)) id = 'inicio';
-    // Restablecer visibilidad de secciones filtradas
+    // Restablecer visibilidad de secciones y sub-elementos filtrados
     document.querySelectorAll('.view > section').forEach(s => s.style.display = '');
+    document.querySelectorAll('[data-goto-hidden]').forEach(el => { el.style.display = ''; delete el.dataset.gotoHidden; });
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     const target = document.getElementById('view-' + id);
     if (target) {
