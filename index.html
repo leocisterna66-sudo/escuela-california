@@ -2564,16 +2564,46 @@
 
   /* Mobile overrides — must come last to beat visual enhancement layer */
   @media (max-width: 640px) {
-    .hero { min-height: auto; padding: 5rem 1.4rem 3rem; }
-    .hero h2 { font-size: 2.4rem !important; line-height: 1.1; }
-    .hero-desc { font-size: .92rem; margin-bottom: 1.2rem; }
-    .hero-bottom-row { margin-top: 1rem; gap: 1.2rem; }
-    .hero-strip { height: 130px; margin: -.5rem 0 0; }
-    .hero-strip-caption { font-size: .7rem; padding: .5rem .7rem; }
+    /* Hero: imagen de portada visible en la parte inferior */
+    .hero {
+      min-height: auto;
+      padding: 3.8rem 1.4rem 46vw;
+      align-items: flex-start;
+    }
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(14,26,38,.97) 0%,
+        rgba(14,26,38,.90) 42%,
+        rgba(14,26,38,.45) 68%,
+        rgba(14,26,38,.06) 100%
+      ) !important;
+    }
+    .hero-bg-img {
+      background-position: center 45%;
+      border-radius: 0 0 1rem 1rem;
+    }
+    .hero h2 { font-size: 2.2rem !important; line-height: 1.1; }
+    .hero-desc { font-size: .88rem; margin-bottom: 1rem; }
+    .hero-bottom-row { margin-top: .85rem; gap: .85rem; }
+    .hero-strip { height: 100px; margin: 0; }
+    .hero-strip-caption { font-size: .68rem; padding: .45rem .6rem; }
 
-    /* Tables: horizontal scroll instead of breaking layout */
+    /* Quickbar: 3 columnas compactas */
+    .quickbar-grid { grid-template-columns: repeat(3, 1fr) !important; gap: .42rem; }
+    .qacard { padding: .48rem .28rem; gap: .24rem; border-radius: 11px; }
+    .qacard-icon { width: 30px; height: 30px; font-size: .8rem; border-radius: 7px; }
+    .qacard-label { font-size: .57rem; line-height: 1.2; }
+
+    /* Tables: horizontal scroll */
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     #atencion-apoderados { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  /* Pantallas muy pequeñas: 2 columnas si es necesario */
+  @media (max-width: 320px) {
+    .quickbar-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .hero { padding: 3.5rem 1.1rem 42vw; }
   }
 
   /* Landscape phone: hero más compacto, header sin topbar overflow */
