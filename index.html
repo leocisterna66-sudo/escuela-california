@@ -4841,16 +4841,21 @@
 
   function goTo(viewId, sectionId) {
     showView(viewId);
-    if (sectionId) {
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
-    }
+    if (!sectionId) return;
+    const view   = document.getElementById('view-' + viewId);
+    const target = document.getElementById(sectionId);
+    if (!view || !target) return;
+    // Ocultar secciones hermanas, mostrar solo la que contiene el destino
+    view.querySelectorAll(':scope > section').forEach(sec => {
+      sec.style.display = (sec === target || sec.contains(target)) ? '' : 'none';
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   function showView(id) {
     if (!document.getElementById('view-' + id)) id = 'inicio';
+    // Restablecer visibilidad de secciones filtradas
+    document.querySelectorAll('.view > section').forEach(s => s.style.display = '');
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     const target = document.getElementById('view-' + id);
     if (target) {
