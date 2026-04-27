@@ -2570,18 +2570,19 @@
       padding: 3.5rem 1.4rem 52vw;
       align-items: flex-start;
     }
-    /* Overlay solo sobre area de texto, foto limpia y nitida abajo */
+    /* Gradiente celeste tipo cielo, foto de la escuela visible abajo */
     .hero-overlay {
       background: linear-gradient(
         to bottom,
-        rgba(14,26,38,.97) 0%,
-        rgba(14,26,38,.93) 36%,
-        rgba(14,26,38,.0)  56%,
-        rgba(14,26,38,.0)  100%
+        rgba(15, 65, 140, .94) 0%,
+        rgba(25, 90, 170, .88) 32%,
+        rgba(80, 150, 210, .35) 58%,
+        rgba(80, 150, 210, .0)  100%
       ) !important;
     }
     .hero-overlay-bottom { display: none; }
-    .hero-bg-img { background-position: center 40%; }
+    /* Bajar la imagen para mostrar la escuela, no la reja */
+    .hero-bg-img { background-position: center 70%; }
 
     .hero h2 { font-size: 2.2rem !important; line-height: 1.1; }
     .hero-desc { font-size: .88rem; margin-bottom: 1rem; }
