@@ -2642,10 +2642,10 @@
     .hero-strip { height: 120px; margin: -.5rem 0 0; }
     .quickbar { padding: .4rem 1.5rem .5rem; }
     .quickbar-title { margin-bottom: .4rem; }
-    .quickbar-grid { gap: .55rem; }
-    .qacard { padding: .5rem .35rem; gap: .28rem; }
-    .qacard-icon { width: 34px; height: 34px; font-size: .95rem; border-radius: 8px; }
-    .qacard-label { font-size: .6rem; line-height: 1.25; }
+    .quickbar-grid { gap: .4rem; grid-template-columns: repeat(12, 1fr) !important; max-width: 100%; }
+    .qacard { padding: .45rem .2rem; gap: .2rem; }
+    .qacard-icon { width: 30px; height: 30px; font-size: .8rem; border-radius: 7px; }
+    .qacard-label { font-size: .52rem; line-height: 1.2; }
   }
 
 /* ── View Navigation System ── */
@@ -2724,76 +2724,59 @@
     </button>
     <nav id="main-nav">
       <div class="nav-item"><a href="#inicio" class="nav-link" data-view="inicio" onclick="showView('inicio');return false;">Inicio</a></div>
+
+      <!-- La Escuela -->
       <div class="nav-item">
-        <a class="nav-link" href="#quienes-somos" data-view="quienes-somos" onclick="showView('quienes-somos');return false;">Quienes somos<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
+        <a class="nav-link" href="#quienes-somos" onclick="return false;">La Escuela<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
         <div class="dropdown">
           <div class="dropdown-card">
-            <div class="dropdown-header">Quienes Somos</div>
-            <a href="#quienes-somos" onclick="showView('quienes-somos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-school"></i></span><span>Presentacion Institucional</span></a>
-            <a href="#ficha-identificacion" onclick="showView('quienes-somos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-clipboard-list"></i></span><span>Ficha de Identificacion</span></a>
-            <a href="#equipo-trabajo" onclick="showView('quienes-somos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-users"></i></span><span>Equipo de Trabajo</span></a>
+            <div class="dropdown-header">La Escuela</div>
+            <a href="#" onclick="return false;" style="opacity:.55;cursor:not-allowed;"><span class="dropdown-icon"><i class="fa-solid fa-landmark"></i></span><span>Nuestra Historia</span></a>
+            <a href="#quienes-somos-info" onclick="goTo('quienes-somos','quienes-somos-info',['equipo-trabajo']);return false;"><span class="dropdown-icon"><i class="fa-solid fa-school"></i></span><span>Proyecto Educativo</span></a>
+            <a href="#equipo-trabajo" onclick="goTo('quienes-somos','equipo-trabajo',['quienes-somos-info']);return false;"><span class="dropdown-icon"><i class="fa-solid fa-users"></i></span><span>Comunidad Educativa</span></a>
+            <a href="#calendario-escolar" onclick="goTo('quienes-somos','calendario-escolar');return false;"><span class="dropdown-icon"><i class="fa-solid fa-calendar-days"></i></span><span>Año Escolar</span></a>
           </div>
         </div>
       </div>
+
+      <!-- Novedades -->
       <div class="nav-item">
-        <a class="nav-link" href="#novedades" data-view="novedades" onclick="showView('novedades');return false;">Info. Escolar<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
+        <a class="nav-link" href="#novedades" onclick="return false;">Novedades<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
         <div class="dropdown">
           <div class="dropdown-card">
-            <div class="dropdown-header">Informacion Escolar</div>
-            <a href="#academico" onclick="showView('academico');return false;"><span class="dropdown-icon"><i class="fa-solid fa-book-open-reader"></i></span><span>Vida Academica</span></a>
-            <a href="#novedades" onclick="showView('novedades');return false;"><span class="dropdown-icon"><i class="fa-solid fa-bullhorn"></i></span><span>Noticias y Avisos</span></a>
-            <a href="#quienes-somos" onclick="showView('quienes-somos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-calendar-days"></i></span><span>Calendario Escolar</span></a>
-            <a href="#novedades" onclick="showView('novedades');return false;"><span class="dropdown-icon"><i class="fa-solid fa-images"></i></span><span>Galeria de Actividades</span></a>
+            <div class="dropdown-header">Novedades</div>
+            <a href="#noticias" onclick="goTo('novedades','noticias');return false;"><span class="dropdown-icon"><i class="fa-solid fa-bullhorn"></i></span><span>Noticias</span></a>
+            <a href="#galeria" onclick="goTo('novedades','galeria');return false;"><span class="dropdown-icon"><i class="fa-solid fa-images"></i></span><span>Galerías de Fotos</span></a>
           </div>
         </div>
       </div>
+
+      <!-- Infraestructura -->
+      <div class="nav-item"><a href="#equipamiento" class="nav-link" onclick="goTo('infraestructura','equipamiento');return false;">Infraestructura</a></div>
+
+      <!-- Estudiantes -->
+      <div class="nav-item"><a href="#info-alumnos" class="nav-link" onclick="goTo('alumnos','info-alumnos');return false;">Estudiantes</a></div>
+
+      <!-- Talleres -->
+      <div class="nav-item"><a href="#actividades" class="nav-link" onclick="showView('actividades');return false;">Talleres</a></div>
+
+      <!-- Apoderados -->
+      <div class="nav-item"><a href="#apoderados" class="nav-link" onclick="goTo('familias','apoderados');return false;">Apoderados</a></div>
+
+      <!-- Biblioteca y Recursos -->
       <div class="nav-item">
-        <a href="#infraestructura" class="nav-link" data-view="infraestructura" onclick="showView('infraestructura');return false;">Equipamiento<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
+        <a class="nav-link" href="#" onclick="return false;" style="opacity:.55;cursor:not-allowed;">Biblioteca<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
         <div class="dropdown">
           <div class="dropdown-card">
-            <div class="dropdown-header">Infraestructura</div>
-            <a href="#infraestructura" onclick="showView('infraestructura');return false;"><span class="dropdown-icon"><i class="fa-solid fa-building"></i></span><span>Espacios y recursos</span></a>
+            <div class="dropdown-header">Biblioteca y Recursos</div>
+            <a href="#" onclick="return false;" style="opacity:.55;cursor:not-allowed;"><span class="dropdown-icon"><i class="fa-solid fa-book-open"></i></span><span>Catálogo Biblioteca</span></a>
+            <a href="#" onclick="return false;" style="opacity:.55;cursor:not-allowed;"><span class="dropdown-icon"><i class="fa-solid fa-folder-open"></i></span><span>Recursos Educativos</span></a>
           </div>
         </div>
       </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#alumnos" data-view="alumnos" onclick="showView('alumnos');return false;">Info. Alumnos<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
-        <div class="dropdown">
-          <div class="dropdown-card">
-            <div class="dropdown-header">Estudiantes</div>
-            <a href="#alumnos" onclick="showView('alumnos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-shirt"></i></span><span>Uniforme y Normas</span></a>
-            <a href="#alumnos" onclick="showView('alumnos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-calendar-days"></i></span><span>Horarios</span></a>
-            <a href="#alumnos" onclick="showView('alumnos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-newspaper"></i></span><span>Calendario de actos y diario mural</span></a>
-            <a href="#alumnos" onclick="showView('alumnos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-utensils"></i></span><span>Minuta</span></a>
-            <a href="#alumnos" onclick="showView('alumnos');return false;"><span class="dropdown-icon"><i class="fa-solid fa-store"></i></span><span>Calendario de ventas</span></a>
-            <a href="#actividades" onclick="showView('actividades');return false;"><span class="dropdown-icon"><i class="fa-solid fa-palette"></i></span><span>Talleres extraescolares</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#familias" data-view="familias" onclick="showView('familias');return false;">Apoderados<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
-        <div class="dropdown">
-          <div class="dropdown-card">
-            <div class="dropdown-header">Apoderados</div>
-            <a href="#familias" onclick="showView('familias');return false;"><span class="dropdown-icon"><i class="fa-solid fa-mobile-screen-button"></i></span><span>Lirmi Familia</span></a>
-            <a href="#familias" onclick="showView('familias');return false;"><span class="dropdown-icon"><i class="fa-solid fa-users"></i></span><span>Reuniones de Apoderados</span></a>
-            <a href="#participacion" onclick="showView('participacion');return false;"><span class="dropdown-icon"><i class="fa-solid fa-envelope-open-text"></i></span><span>Sugerencias y Contacto</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="#actividades" data-view="actividades" onclick="showView('actividades');return false;">Talleres<svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></a>
-        <div class="dropdown">
-          <div class="dropdown-card">
-            <div class="dropdown-header">Talleres</div>
-            <a href="#actividades" onclick="showView('actividades');return false;"><span class="dropdown-icon"><i class="fa-solid fa-palette"></i></span><span>Talleres Extraescolares</span></a>
-            <a href="#actividades" onclick="showView('actividades');return false;"><span class="dropdown-icon"><i class="fa-solid fa-users-rays"></i></span><span>Taller PACMA</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item"><a class="nav-link" href="#participacion" data-view="participacion" onclick="showView('participacion');return false;">Sugerencias</a></div>
-      <div class="nav-item"><a href="#infraestructura" class="nav-link nav-link-feature" onclick="showView('infraestructura');return false;"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Biblioteca</a></div>
-      <div class="nav-item"><a href="https://69e69ac780462ca3810bae1d--inquisitive-pie-f6c2d0.netlify.app/" target="_blank" rel="noopener" class="nav-link nav-link-feature"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Recursos Pedagogicos</a></div>
+
+      <!-- Sugerencias -->
+      <div class="nav-item"><a href="#sugerencias" class="nav-link" onclick="goTo('participacion','sugerencias');return false;">Sugerencias</a></div>
     </nav>
   </div>
 </header>
