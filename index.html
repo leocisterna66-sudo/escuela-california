@@ -2841,7 +2841,7 @@
       <div class="hero-bottom-row">
         <div class="hero-actions">
           <a href="#quienes-somos" class="btn btn-primary" onclick="showView('quienes-somos');return false;">Conoce la Escuela</a>
-          <a href="#sugerencias" class="btn btn-ghost" onclick="showView('participacion');return false;">Contactanos</a>
+          <a href="#sugerencias" class="btn btn-ghost" onclick="goTo('participacion','sugerencias');return false;">Contactanos</a>
         </div>
         <div class="hero-social">
           <span class="hero-social-label">Siguenos</span>
@@ -2869,51 +2869,51 @@
 <div class="quickbar">
   <p class="quickbar-title">Accesos Rapidos</p>
   <div class="quickbar-grid">
-    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+    <a href="#" class="qacard" onclick="return false;" style="opacity:.55;cursor:not-allowed;">
       <div class="qacard-icon"><i class="fa-solid fa-landmark"></i></div>
       <span class="qacard-label">Nuestra Historia</span>
     </a>
-    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+    <a href="#quienes-somos" class="qacard" onclick="goTo('quienes-somos','quienes-somos');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-scroll"></i></div>
       <span class="qacard-label">Proyecto Educativo</span>
     </a>
-    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+    <a href="#equipo-trabajo" class="qacard" onclick="goTo('quienes-somos','equipo-trabajo');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-people-group"></i></div>
       <span class="qacard-label">Comunidad Educativa</span>
     </a>
-    <a href="#quienes-somos" class="qacard" onclick="showView('quienes-somos');return false;">
+    <a href="#calendario-escolar" class="qacard" onclick="goTo('quienes-somos','calendario-escolar');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-calendar-check"></i></div>
       <span class="qacard-label">Año Escolar</span>
     </a>
-    <a href="#novedades" class="qacard" onclick="showView('novedades');return false;">
+    <a href="#noticias" class="qacard" onclick="goTo('novedades','noticias');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-newspaper"></i></div>
       <span class="qacard-label">Noticias</span>
     </a>
-    <a href="#novedades" class="qacard" onclick="showView('novedades');return false;">
+    <a href="#galeria" class="qacard" onclick="goTo('novedades','galeria');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-images"></i></div>
       <span class="qacard-label">Galerias de Fotos</span>
     </a>
-    <a href="#infraestructura" class="qacard" onclick="showView('infraestructura');return false;">
+    <a href="#equipamiento" class="qacard" onclick="goTo('infraestructura','equipamiento');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-building"></i></div>
       <span class="qacard-label">Infraestructura</span>
     </a>
-    <a href="#alumnos" class="qacard" onclick="showView('alumnos');return false;">
+    <a href="#info-alumnos" class="qacard" onclick="goTo('alumnos','info-alumnos');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-user-graduate"></i></div>
       <span class="qacard-label">Estudiantes</span>
     </a>
-    <a href="#actividades" class="qacard" onclick="showView('actividades');return false;">
+    <a href="#talleres" class="qacard" onclick="goTo('actividades','talleres');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-palette"></i></div>
       <span class="qacard-label">Talleres Extraescolares</span>
     </a>
-    <a href="#familias" class="qacard" onclick="showView('familias');return false;">
+    <a href="#apoderados" class="qacard" onclick="goTo('familias','apoderados');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-users"></i></div>
       <span class="qacard-label">Apoderados</span>
     </a>
-    <a href="#academico" class="qacard" onclick="showView('academico');return false;">
+    <a href="#" class="qacard" onclick="return false;" style="opacity:.55;cursor:not-allowed;">
       <div class="qacard-icon"><i class="fa-solid fa-book"></i></div>
       <span class="qacard-label">Catalogo Biblioteca</span>
     </a>
-    <a href="#academico" class="qacard" onclick="showView('academico');return false;">
+    <a href="#" class="qacard" onclick="return false;" style="opacity:.55;cursor:not-allowed;">
       <div class="qacard-icon"><i class="fa-solid fa-graduation-cap"></i></div>
       <span class="qacard-label">Recursos Educativos</span>
     </a>
@@ -4838,6 +4838,16 @@
     'academico':'Académico','infraestructura':'Infraestructura','alumnos':'Info. Alumnos',
     'familias':'Familias','actividades':'Actividades','participacion':'Participación'
   };
+
+  function goTo(viewId, sectionId) {
+    showView(viewId);
+    if (sectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  }
 
   function showView(id) {
     if (!document.getElementById('view-' + id)) id = 'inicio';
