@@ -2651,6 +2651,140 @@
     .qacard-label { font-size: .52rem; line-height: 1.2; }
   }
 
+/* ══════════════════════════════════════════
+   NUESTRA HISTORIA — Línea de tiempo
+   ══════════════════════════════════════════ */
+
+/* Fondo cielo azul */
+#view-historia { background: linear-gradient(165deg,#1565a8 0%,#2f96cc 35%,#6fc8e8 70%,#aadeef 100%); }
+#view-historia::before { background-image: url('fondo-4.png'); opacity: .14; }
+#view-historia > section { background: transparent !important; }
+
+/* Banner hero historia */
+.tl-hero {
+  text-align: center; padding: 4rem 1.5rem 3rem; color: #fff;
+  position: relative; z-index: 2;
+}
+.tl-hero h2 {
+  font-size: clamp(2rem,5vw,3.2rem); font-weight: 900;
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+  margin-bottom: .8rem; letter-spacing: -.02em;
+}
+.tl-hero-sub {
+  font-size: clamp(.9rem,2vw,1.1rem);
+  opacity: .92; max-width: 580px; margin: 0 auto 1.6rem;
+  line-height: 1.6; text-shadow: 0 1px 6px rgba(0,0,0,.2);
+}
+.tl-era-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem .9rem;
+  margin-top: .6rem;
+}
+.tl-era-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .28rem .85rem; border-radius: 30px; font-size: .72rem; font-weight: 700;
+  background: rgba(255,255,255,.18); border: 1.5px solid rgba(255,255,255,.35);
+  color: #fff; letter-spacing: .04em; backdrop-filter: blur(4px);
+}
+.tl-era-badge::before {
+  content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: currentColor;
+}
+.era-badge-1 { color: #ffd166; }
+.era-badge-2 { color: #90e0ef; }
+.era-badge-3 { color: #c77dff; }
+.era-badge-4 { color: #80ffdb; }
+
+/* Línea de tiempo */
+.timeline {
+  position: relative; max-width: 940px; margin: 0 auto;
+  padding: 1rem 1.5rem 5rem;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom,#ffd166 0%,#90e0ef 35%,#c77dff 65%,#80ffdb 100%);
+  border-radius: 4px; opacity: .9;
+}
+
+/* Items */
+.tl-item {
+  position: relative; width: calc(50% - 2rem);
+  padding-bottom: 2.4rem;
+  opacity: 0; transition: opacity .6s ease, transform .6s ease;
+}
+.tl-item.tl-left  { margin-left: 0; transform: translateX(-40px); }
+.tl-item.tl-right { margin-left: calc(50% + 2rem); transform: translateX(40px); }
+.tl-item.tl-visible { opacity: 1; transform: translateX(0) !important; }
+
+/* Punto en la línea central */
+.tl-dot {
+  position: absolute; top: 10px; width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 3.5px solid; z-index: 2;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.25);
+  transition: transform .2s;
+}
+.tl-item:hover .tl-dot { transform: scale(1.3); }
+.tl-item.tl-left  .tl-dot { right: -2.55rem; border-color: currentColor; }
+.tl-item.tl-right .tl-dot { left:  -2.55rem; border-color: currentColor; }
+
+/* Línea conectora */
+.tl-item.tl-left  .tl-dot::after,
+.tl-item.tl-right .tl-dot::after {
+  content: ''; position: absolute; top: 50%; height: 2px;
+  background: currentColor; opacity: .5;
+  transform: translateY(-50%);
+}
+.tl-item.tl-left  .tl-dot::after { left: 100%; width: 1.5rem; }
+.tl-item.tl-right .tl-dot::after { right: 100%; width: 1.5rem; }
+
+/* Card */
+.tl-card {
+  background: rgba(255,255,255,.93);
+  border-radius: 16px; padding: 1.2rem 1.4rem;
+  box-shadow: 0 6px 28px rgba(0,60,120,.18);
+  border-top: 4px solid currentColor;
+  transition: transform .2s, box-shadow .2s;
+}
+.tl-item:hover .tl-card { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,60,120,.28); }
+
+.tl-year-row {
+  display: flex; align-items: center; gap: .55rem; margin-bottom: .55rem;
+}
+.tl-icon {
+  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: currentColor; font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.tl-year {
+  font-size: .82rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: currentColor;
+  background: rgba(255,255,255,.0);
+  padding: .15rem .55rem; border-radius: 20px;
+  border: 1.5px solid currentColor;
+}
+.tl-card h3 { font-size: .97rem; font-weight: 700; color: #1a1a2e; line-height: 1.35; margin-bottom: .45rem; }
+.tl-card p  { font-size: .82rem; color: #4a5568; line-height: 1.6; margin: 0; }
+
+/* Colores por era */
+.era-1 { color: #d4890f; }
+.era-2 { color: #0f7aaa; }
+.era-3 { color: #7b2fbe; }
+.era-4 { color: #0d9c7a; }
+
+/* Mobile */
+@media (max-width: 700px) {
+  .timeline { padding: 1rem .8rem 3rem; }
+  .timeline::before { left: 18px; }
+  .tl-item { width: 100%; margin-left: 0 !important; padding-left: 46px; }
+  .tl-item.tl-left  { transform: translateX(-20px); }
+  .tl-item.tl-right { transform: translateX(20px); }
+  .tl-item.tl-left .tl-dot  { right: auto; left: -1.7rem; }
+  .tl-item.tl-right .tl-dot { left: -1.7rem; }
+  .tl-item.tl-left  .tl-dot::after { left: auto; right: 100%; width: 1rem; }
+  .tl-item.tl-right .tl-dot::after { right: auto; left: 100%; width: 1rem; }
+}
+
 /* ── Fondos de sección ── */
 .view { position: relative; }
 .view::before {
@@ -2763,7 +2897,7 @@
         <div class="dropdown">
           <div class="dropdown-card">
             <div class="dropdown-header">La Escuela</div>
-            <a href="#" onclick="return false;" style="opacity:.55;cursor:not-allowed;"><span class="dropdown-icon"><i class="fa-solid fa-landmark"></i></span><span>Nuestra Historia</span></a>
+            <a href="#nuestra-historia" onclick="showView('historia');return false;"><span class="dropdown-icon"><i class="fa-solid fa-landmark"></i></span><span>Nuestra Historia</span></a>
             <a href="#quienes-somos-info" onclick="goTo('quienes-somos','quienes-somos-info',['equipo-trabajo']);return false;"><span class="dropdown-icon"><i class="fa-solid fa-school"></i></span><span>Proyecto Educativo</span></a>
             <a href="#equipo-trabajo" onclick="goTo('quienes-somos','equipo-trabajo',['quienes-somos-info']);return false;"><span class="dropdown-icon"><i class="fa-solid fa-users"></i></span><span>Comunidad Educativa</span></a>
             <a href="#calendario-escolar" onclick="goTo('quienes-somos','calendario-escolar');return false;"><span class="dropdown-icon"><i class="fa-solid fa-calendar-days"></i></span><span>Año Escolar</span></a>
@@ -2888,7 +3022,7 @@
 <div class="quickbar">
   <p class="quickbar-title">Accesos Rapidos</p>
   <div class="quickbar-grid">
-    <a href="#" class="qacard" onclick="return false;" style="opacity:.55;cursor:not-allowed;">
+    <a href="#nuestra-historia" class="qacard qa-c4" onclick="showView('historia');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-landmark"></i></div>
       <span class="qacard-label">Nuestra Historia</span>
     </a>
@@ -4294,6 +4428,304 @@
 </section>
 </div><!-- /view-participacion -->
 
+<!-- ══════════════════════════════════════════ -->
+<!-- VIEW: NUESTRA HISTORIA                     -->
+<!-- ══════════════════════════════════════════ -->
+<div class="view" id="view-historia">
+<section id="nuestra-historia" style="padding:0;">
+  <!-- Hero banner -->
+  <div class="tl-hero">
+    <div class="section-eyebrow" style="margin:0 auto 1rem;display:inline-flex;">🏛️ Memoria e Identidad</div>
+    <h2>Nuestra Historia</h2>
+    <p class="tl-hero-sub">Del Molino California a la Escuela Patrimonial: más de 180 años de historia compartida entre el barrio y su escuela.</p>
+    <div class="tl-era-legend">
+      <span class="tl-era-badge era-badge-1">Época Industrial</span>
+      <span class="tl-era-badge era-badge-2">Fundación Escolar</span>
+      <span class="tl-era-badge era-badge-3">Consolidación</span>
+      <span class="tl-era-badge era-badge-4">Era Patrimonial</span>
+    </div>
+  </div>
+
+  <!-- Línea de tiempo -->
+  <div class="timeline" id="timeline">
+
+    <!-- 1842 -->
+    <div class="tl-item tl-left era-1">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">⚙️</div>
+          <span class="tl-year">1842</span>
+        </div>
+        <h3>Inicio de la actividad molinera en Tomé</h3>
+        <p>Comienza la actividad molinera con el Molino Collén, marcando una etapa económica clave para la comuna.</p>
+      </div>
+    </div>
+
+    <!-- 1847 -->
+    <div class="tl-item tl-right era-1">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏭</div>
+          <span class="tl-year">1847</span>
+        </div>
+        <h3>Nace el Molino California</h3>
+        <p>El Molino California inicia sus operaciones y se transforma en uno de los símbolos industriales del sector.</p>
+      </div>
+    </div>
+
+    <!-- 1850 -->
+    <div class="tl-item tl-left era-1">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">⛵</div>
+          <span class="tl-year">1850 aprox.</span>
+        </div>
+        <h3>Tomé como puerto harinero</h3>
+        <p>Tomé se posiciona como punto relevante de exportación de harina, conectando su desarrollo local con mercados internacionales.</p>
+      </div>
+    </div>
+
+    <!-- 1858 -->
+    <div class="tl-item tl-right era-1">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">⚓</div>
+          <span class="tl-year">1858</span>
+        </div>
+        <h3>Tomé es declarado Puerto Mayor</h3>
+        <p>Se fortalece el comercio, la conectividad y el movimiento de productos agrícolas.</p>
+      </div>
+    </div>
+
+    <!-- 1896 -->
+    <div class="tl-item tl-left era-1">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🚡</div>
+          <span class="tl-year">1896</span>
+        </div>
+        <h3>Ferrocarril aéreo del Molino California</h3>
+        <p>Se implementa un sistema pionero para trasladar harina hacia la zona de embarque.</p>
+      </div>
+    </div>
+
+    <!-- 1908 -->
+    <div class="tl-item tl-right era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏫</div>
+          <span class="tl-year">1908</span>
+        </div>
+        <h3>Fundación de la Escuela California</h3>
+        <p>La escuela nace en un contexto de crecimiento del barrio, ligada a las familias trabajadoras del sector.</p>
+      </div>
+    </div>
+
+    <!-- 1910-1930 -->
+    <div class="tl-item tl-left era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏙️</div>
+          <span class="tl-year">1910 – 1930</span>
+        </div>
+        <h3>Tomé se consolida como ciudad industrial</h3>
+        <p>Molinos, fábricas, actividad portuaria y crecimiento urbano impulsan una etapa de transformación social y económica.</p>
+      </div>
+    </div>
+
+    <!-- 1912 -->
+    <div class="tl-item tl-right era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🚂</div>
+          <span class="tl-year">1912</span>
+        </div>
+        <h3>Llegada del ferrocarril</h3>
+        <p>La conexión ferroviaria fortalece el traslado de personas, productos y oportunidades para la comuna.</p>
+      </div>
+    </div>
+
+    <!-- 1947 -->
+    <div class="tl-item tl-left era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🌅</div>
+          <span class="tl-year">1947</span>
+        </div>
+        <h3>Cierre del Molino California</h3>
+        <p>Finaliza una etapa fundamental de la historia industrial del barrio, dejando una huella importante en la memoria local.</p>
+      </div>
+    </div>
+
+    <!-- 1960 -->
+    <div class="tl-item tl-right era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🪨</div>
+          <span class="tl-year">1960</span>
+        </div>
+        <h3>Piedra fundacional del actual establecimiento</h3>
+        <p>Se inicia una nueva etapa en la infraestructura escolar con la colocación de la piedra fundacional del edificio actual.</p>
+      </div>
+    </div>
+
+    <!-- 1964 -->
+    <div class="tl-item tl-left era-2">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🎉</div>
+          <span class="tl-year">1964</span>
+        </div>
+        <h3>Inauguración del edificio actual</h3>
+        <p>La escuela consolida su presencia física en el barrio como espacio educativo reconocido por la comunidad.</p>
+      </div>
+    </div>
+
+    <!-- 1978 -->
+    <div class="tl-item tl-right era-3">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">📋</div>
+          <span class="tl-year">1978</span>
+        </div>
+        <h3>Nuevo hito institucional</h3>
+        <p>Se registra una etapa relevante en la historia interna de la escuela, asociada a mejoras, ampliaciones o reorganización institucional. <em style="color:#888;">(Dato pendiente de precisión.)</em></p>
+      </div>
+    </div>
+
+    <!-- 2008 -->
+    <div class="tl-item tl-left era-3">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🎂</div>
+          <span class="tl-year">2008</span>
+        </div>
+        <h3>100 años de historia escolar</h3>
+        <p>La Escuela California celebra su centenario, reuniendo a la comunidad educativa en torno a su trayectoria.</p>
+      </div>
+    </div>
+
+    <!-- 2015 -->
+    <div class="tl-item tl-right era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏘️</div>
+          <span class="tl-year">2015</span>
+        </div>
+        <h3>Barrio California ingresa a "Quiero Mi Barrio"</h3>
+        <p>El sector concreta su compromiso con el programa, iniciando un proceso participativo donde la comunidad identifica necesidades y proyecta mejoras.</p>
+      </div>
+    </div>
+
+    <!-- 2015-2021 -->
+    <div class="tl-item tl-left era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🤝</div>
+          <span class="tl-year">2015 – 2021</span>
+        </div>
+        <h3>La comunidad reconoce a la escuela como espacio clave</h3>
+        <p>Vecinos y vecinas destacan la importancia de la escuela para el barrio y priorizan mejoras en el establecimiento.</p>
+      </div>
+    </div>
+
+    <!-- 2018 -->
+    <div class="tl-item tl-right era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏆</div>
+          <span class="tl-year">2018</span>
+        </div>
+        <h3>110 años de la escuela</h3>
+        <p>La comunidad educativa conmemora más de un siglo de trayectoria con actividades que honran su historia.</p>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="tl-item tl-left era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🔨</div>
+          <span class="tl-year">2020</span>
+        </div>
+        <h3>Inicio de mejoras en la Escuela California</h3>
+        <p>Se comienzan a ejecutar obras de mejoramiento vinculadas al programa "Quiero Mi Barrio".</p>
+      </div>
+    </div>
+
+    <!-- 2021 -->
+    <div class="tl-item tl-right era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🏗️</div>
+          <span class="tl-year">2021</span>
+        </div>
+        <h3>Consolidación de obras en el establecimiento</h3>
+        <p>Las mejoras fortalecen la infraestructura escolar y reafirman el rol comunitario de la escuela.</p>
+      </div>
+    </div>
+
+    <!-- 2021-2023 -->
+    <div class="tl-item tl-left era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">🌟</div>
+          <span class="tl-year">2021 – 2023</span>
+        </div>
+        <h3>Consolidación como "Escuela Patrimonial California"</h3>
+        <p>La comunidad educativa comienza a utilizar públicamente esta denominación, reflejando una identidad basada en su historia y vínculo con el barrio.</p>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="tl-item tl-right era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-year-row">
+          <div class="tl-icon">📅</div>
+          <span class="tl-year">2023</span>
+        </div>
+        <h3>115 años de historia</h3>
+        <p>La escuela celebra una nueva etapa de su trayectoria, manteniendo viva la memoria de quienes han sido parte de ella.</p>
+      </div>
+    </div>
+
+    <!-- 2026 -->
+    <div class="tl-item tl-left era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card" style="border-top-width:5px;box-shadow:0 8px 36px rgba(13,156,122,.35);">
+        <div class="tl-year-row">
+          <div class="tl-icon">🌐</div>
+          <span class="tl-year">2026 · Hoy</span>
+        </div>
+        <h3>Escuela Patrimonial California hoy</h3>
+        <p>La escuela proyecta su identidad mediante su página web, actividades comunitarias, proyectos escolares y rescate de memoria local.</p>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+</section>
+</div><!-- /view-historia -->
+
 <footer>
   <div class="footer-inner">
     <div class="footer-compact">
@@ -4491,6 +4923,32 @@
 
   /* ?? Hamburger toggle (mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½vil) ?? */
   const hamburger = document.querySelector('.hamburger');
+  /* ── Línea de tiempo — animación scroll ── */
+  (function(){
+    function initTimeline() {
+      const items = document.querySelectorAll('.tl-item');
+      if (!items.length) return;
+      const obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.classList.add('tl-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.18 });
+      items.forEach(function(el){ obs.observe(el); });
+    }
+    // Iniciar cuando se muestre la vista historia
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('[onclick]');
+      if (btn && btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("historia")) {
+        setTimeout(initTimeline, 350);
+      }
+    });
+    // También si se carga directamente
+    if (window.location.hash === '#historia') setTimeout(initTimeline, 400);
+  })();
+
   /* ── Hero Slider ── */
   (function(){
     const slides = document.querySelectorAll('.hero-slide');
