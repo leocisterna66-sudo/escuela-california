@@ -28,9 +28,10 @@
     min-height: 100vh;
   }
 
-  /* HEADER */
+  /* HEADER — color igual al sitio principal */
   header {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    background: #0e1a26;
+    border-bottom: 3px solid #f0c000;
     color: white;
     padding: 0 24px;
     display: flex;
@@ -40,7 +41,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
   }
 
   .header-brand {
@@ -710,12 +711,80 @@
   }
 
   /* RESPONSIVE */
+  /* ── Botón toggle filtros (solo móvil) ── */
+  .filter-toggle-btn {
+    display: none;
+    align-items: center; gap: 8px;
+    width: 100%; padding: 10px 16px;
+    background: #fff; border: none;
+    border-bottom: 1px solid var(--border);
+    font-size: .85rem; font-weight: 600;
+    color: var(--primary); cursor: pointer;
+    text-align: left;
+  }
+  .filter-toggle-btn svg { flex-shrink: 0; }
+  .filter-toggle-btn .ftb-arrow { margin-left: auto; transition: transform .25s; }
+  .filter-toggle-btn.open .ftb-arrow { transform: rotate(180deg); }
+
+  /* ── Tablet ── */
+  @media (max-width: 900px) {
+    .book-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  }
+
+  /* ── Móvil ── */
   @media (max-width: 768px) {
+    /* Header adaptable */
+    header {
+      height: auto; padding: .55rem 1rem;
+      flex-wrap: wrap; gap: .4rem;
+    }
+    .header-brand { flex: 1; min-width: 0; }
+    .header-insignia { height: 38px; }
+    .header-brand-text .school-name { font-size: .88rem; }
+    .header-brand-text .library-name { font-size: .62rem; }
+    .header-nav {
+      width: 100%; justify-content: flex-end;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: .35rem; gap: 2px;
+    }
+    .header-nav .nav-btn { font-size: .75rem; padding: 5px 10px; }
+    .header-nav .nav-btn span { display: inline; }
+
+    /* Sidebar colapsible */
+    .filter-toggle-btn { display: flex; }
     .catalog-layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
-    .header-nav .nav-btn span { display: none; }
+    .sidebar {
+      position: static; height: auto;
+      border-right: none;
+      max-height: 0; overflow: hidden; padding: 0 20px;
+      transition: max-height .35s ease, padding .35s ease;
+    }
+    .sidebar.open { max-height: 2000px; padding: 16px 20px 20px; }
+
+    /* Grid libros — 2 columnas */
+    .book-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .main-content { padding: 12px; }
+    .book-cover { height: 120px; }
+    .book-card-body { padding: 8px 10px 10px; gap: 4px; }
+    .book-title { font-size: .82rem; -webkit-line-clamp: 2; }
+    .book-author { font-size: .72rem; }
+    .book-meta { font-size: .68rem; }
+    .book-type-badge { font-size: .62rem; padding: 1px 6px; }
+
+    /* Paginación */
+    .pagination { gap: 4px; flex-wrap: wrap; }
+    .page-btn { min-width: 34px; height: 34px; font-size: .82rem; }
+
+    /* Estadísticas */
     .detail-grid { grid-template-columns: 1fr; }
-    .bar-row { grid-template-columns: 80px 1fr 40px; }
+    .bar-row { grid-template-columns: 70px 1fr 36px; font-size: .78rem; }
+    .stats-view { padding: 16px 12px; }
+  }
+
+  /* ── Móvil muy pequeño ── */
+  @media (max-width: 400px) {
+    .book-grid { grid-template-columns: 1fr; }
+    .header-nav .nav-btn span { display: none; }
   }
 </style>
 </head>
@@ -747,8 +816,13 @@
 
 <!-- CATALOG VIEW -->
 <div class="view active" id="view-catalog">
+  <button class="filter-toggle-btn" id="filterToggle" onclick="toggleFilters()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+    <span id="filterToggleLabel">Mostrar filtros</span>
+    <svg class="ftb-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
   <div class="catalog-layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebarPanel">
       <h3>Buscar</h3>
       <div class="search-box">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -836,6 +910,16 @@ const AGE_LEVELS = [
   { key: '5-6',   label: '5° – 6° Básico',      sub: '10 – 11 años', emoji: '🔭', color: '#9c27b0' },
   { key: '7-8',   label: '7° – 8° Básico',      sub: '12 – 13 años', emoji: '🎓', color: '#f44336' },
 ];
+
+// ─── Filtros toggle (móvil) ───────────────────────────────────────────────────
+function toggleFilters() {
+  const sidebar = document.getElementById('sidebarPanel');
+  const btn = document.getElementById('filterToggle');
+  const label = document.getElementById('filterToggleLabel');
+  const isOpen = sidebar.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  label.textContent = isOpen ? 'Ocultar filtros' : 'Mostrar filtros';
+}
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 function init() {
