@@ -701,8 +701,8 @@
     ?????????????????????????????? */
     /* Accesos rapidos - tarjetas grandes con icono */
     .quickbar {
-      background: #f4f7f4;
-      border-bottom: 1px solid var(--border);
+      background: transparent;
+      border-bottom: none;
       padding: 2rem 2rem 2.2rem;
     }
     .quickbar-title {
@@ -744,6 +744,15 @@
       border-color: var(--verde);
       background: var(--verde-bg);
     }
+    /* Colores de sección al 50% */
+    .qacard.qa-c1 { background: rgba(240,192,0,.10);  border-color: rgba(200,155,0,.25); }
+    .qacard.qa-c2 { background: rgba(220,48,32,.10);  border-color: rgba(180,30,20,.25); }
+    .qacard.qa-c3 { background: rgba(126,200,0,.10);  border-color: rgba(90,160,0,.25); }
+    .qacard.qa-c4 { background: rgba(0,168,208,.10);  border-color: rgba(0,130,170,.25); }
+    .qacard.qa-c1:hover { background: rgba(240,192,0,.30); border-color: rgba(200,155,0,.5); }
+    .qacard.qa-c2:hover { background: rgba(220,48,32,.30);  border-color: rgba(180,30,20,.5); }
+    .qacard.qa-c3:hover { background: rgba(126,200,0,.30);  border-color: rgba(90,160,0,.5); }
+    .qacard.qa-c4:hover { background: rgba(0,168,208,.30);  border-color: rgba(0,130,170,.5); }
     .qacard-icon {
       width: 58px; height: 58px;
       background: var(--verde-bg);
@@ -791,9 +800,9 @@
       margin-bottom: 2.5rem;
     }
 
-    /* Alternating bg */
-    section:nth-child(odd)  { background: rgba(255,255,255,0.82); }
-    section:nth-child(even) { background: rgba(245,247,244,0.78); }
+    /* Alternating bg — translúcido para mostrar fondos de sección */
+    section:nth-child(odd)  { background: rgba(255,255,255,0.55); }
+    section:nth-child(even) { background: rgba(245,247,244,0.48); }
 
     /* ?? Espacios acordeÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½n ?? */
     .espacios-grid {
@@ -2097,8 +2106,8 @@
 
     /* Secciones */
     section { padding: 5.5rem 2rem; }
-    section:nth-child(odd)  { background: rgba(255,255,255,0.82); }
-    section:nth-child(even) { background: rgba(246,249,246,0.78); }
+    section:nth-child(odd)  { background: rgba(255,255,255,0.55); }
+    section:nth-child(even) { background: rgba(246,249,246,0.48); }
 
     .section-eyebrow {
       font-size: .68rem;
@@ -2625,6 +2634,35 @@
     .qacard-label { font-size: .52rem; line-height: 1.2; }
   }
 
+/* ── Fondos de sección ── */
+.view { position: relative; }
+.view::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: 520px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+.view > * { position: relative; z-index: 1; }
+/* Contraste de texto — solo elementos DIRECTAMENTE sobre el patrón (no dentro de tarjetas) */
+.view .section-inner > h2,
+.view .section-inner > h3,
+.view .section-inner > p,
+.view .section-inner > .section-title,
+.view .section-inner > .section-eyebrow {
+  text-shadow: 0 0 12px rgba(255,255,255,.95), 0 1px 3px rgba(255,255,255,.85);
+}
+#view-quienes-somos::before  { background-image: url('fondo-1.png'); }
+#view-novedades::before      { background-image: url('fondo-2.png'); }
+#view-infraestructura::before{ background-image: url('fondo-3.png'); }
+#view-alumnos::before        { background-image: url('fondo-4.png'); }
+#view-actividades::before    { background-image: url('fondo-1.png'); }
+#view-familias::before       { background-image: url('fondo-2.png'); }
+#view-participacion::before  { background-image: url('fondo-3.png'); }
+
 /* ── View Navigation System ── */
 .view { display: none; }
 .view.active { display: block; animation: viewIn .3s ease; }
@@ -2833,39 +2871,39 @@
       <div class="qacard-icon"><i class="fa-solid fa-landmark"></i></div>
       <span class="qacard-label">Nuestra Historia</span>
     </a>
-    <a href="#quienes-somos" class="qacard" onclick="goTo('quienes-somos','quienes-somos-info',['equipo-trabajo']);return false;">
+    <a href="#quienes-somos" class="qacard qa-c1" onclick="goTo('quienes-somos','quienes-somos-info',['equipo-trabajo']);return false;">
       <div class="qacard-icon"><i class="fa-solid fa-scroll"></i></div>
       <span class="qacard-label">Proyecto Educativo</span>
     </a>
-    <a href="#equipo-trabajo" class="qacard" onclick="goTo('quienes-somos','equipo-trabajo',['quienes-somos-info']);return false;">
+    <a href="#equipo-trabajo" class="qacard qa-c1" onclick="goTo('quienes-somos','equipo-trabajo',['quienes-somos-info']);return false;">
       <div class="qacard-icon"><i class="fa-solid fa-people-group"></i></div>
       <span class="qacard-label">Comunidad Educativa</span>
     </a>
-    <a href="#calendario-escolar" class="qacard" onclick="goTo('quienes-somos','calendario-escolar');return false;">
+    <a href="#calendario-escolar" class="qacard qa-c1" onclick="goTo('quienes-somos','calendario-escolar');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-calendar-check"></i></div>
       <span class="qacard-label">Año Escolar</span>
     </a>
-    <a href="#noticias" class="qacard" onclick="goTo('novedades','noticias');return false;">
+    <a href="#noticias" class="qacard qa-c2" onclick="goTo('novedades','noticias');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-newspaper"></i></div>
       <span class="qacard-label">Noticias</span>
     </a>
-    <a href="#galeria" class="qacard" onclick="goTo('novedades','galeria');return false;">
+    <a href="#galeria" class="qacard qa-c2" onclick="goTo('novedades','galeria');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-images"></i></div>
       <span class="qacard-label">Galerias de Fotos</span>
     </a>
-    <a href="#equipamiento" class="qacard" onclick="goTo('infraestructura','equipamiento');return false;">
+    <a href="#equipamiento" class="qacard qa-c3" onclick="goTo('infraestructura','equipamiento');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-building"></i></div>
       <span class="qacard-label">Infraestructura</span>
     </a>
-    <a href="#info-alumnos" class="qacard" onclick="goTo('alumnos','info-alumnos');return false;">
+    <a href="#info-alumnos" class="qacard qa-c4" onclick="goTo('alumnos','info-alumnos');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-user-graduate"></i></div>
       <span class="qacard-label">Estudiantes</span>
     </a>
-    <a href="#pacma" class="qacard" onclick="showView('actividades');return false;">
+    <a href="#pacma" class="qacard qa-c1" onclick="showView('actividades');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-palette"></i></div>
       <span class="qacard-label">Talleres Extraescolares</span>
     </a>
-    <a href="#apoderados" class="qacard" onclick="goTo('familias','apoderados');return false;">
+    <a href="#apoderados" class="qacard qa-c2" onclick="goTo('familias','apoderados');return false;">
       <div class="qacard-icon"><i class="fa-solid fa-users"></i></div>
       <span class="qacard-label">Apoderados</span>
     </a>
