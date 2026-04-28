@@ -2766,11 +2766,23 @@
 .tl-card h3 { font-size: .97rem; font-weight: 700; color: #1a1a2e; line-height: 1.35; margin-bottom: .45rem; }
 .tl-card p  { font-size: .82rem; color: #4a5568; line-height: 1.6; margin: 0; }
 
-/* Colores por era */
-.era-1 { color: #d4890f; }
-.era-2 { color: #0f7aaa; }
-.era-3 { color: #7b2fbe; }
-.era-4 { color: #0d9c7a; }
+/* Colores por era — con variable para fondo de ícono */
+.era-1 { color: #d4890f; --ec: #d4890f; }
+.era-2 { color: #0f7aaa; --ec: #0f7aaa; }
+.era-3 { color: #7b2fbe; --ec: #7b2fbe; }
+.era-4 { color: #0d9c7a; --ec: #0d9c7a; }
+.tl-icon { background: var(--ec, #555); color: #fff !important; font-size: 1.05rem; }
+.tl-icon i { color: #fff; }
+
+/* Card con foto */
+.tl-card-photo { padding: 0 !important; }
+.tl-photo-wrap { width: 100%; height: 130px; overflow: hidden; border-radius: 12px 12px 0 0; }
+.tl-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+.tl-card-photo:hover .tl-photo-wrap img { transform: scale(1.07); }
+.tl-card-photo .tl-card-inner { padding: .95rem 1.3rem 1.1rem; }
+.tl-card-photo .tl-year-row { margin-bottom: .45rem; }
+.tl-card-photo h3 { font-size: .95rem; font-weight: 700; color: #1a1a2e; margin-bottom: .35rem; }
+.tl-card-photo p  { font-size: .81rem; color: #4a5568; line-height: 1.55; margin: 0; }
 
 /* Mobile */
 @media (max-width: 700px) {
@@ -4449,220 +4461,277 @@
   <!-- Línea de tiempo -->
   <div class="timeline" id="timeline">
 
-    <!-- 1842 -->
+    <!-- 1842 — FOTO -->
     <div class="tl-item tl-left era-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">⚙️</div>
-          <span class="tl-year">1842</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="trabajadores-molino.JPG" alt="Trabajadores del molino" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-gears"></i></div>
+            <span class="tl-year">1842</span>
+          </div>
+          <h3>Inicio de la actividad molinera en Tomé</h3>
+          <p>Comienza la actividad molinera con el Molino Collén, marcando una etapa económica clave para la comuna.</p>
         </div>
-        <h3>Inicio de la actividad molinera en Tomé</h3>
-        <p>Comienza la actividad molinera con el Molino Collén, marcando una etapa económica clave para la comuna.</p>
       </div>
     </div>
 
-    <!-- 1847 -->
+    <!-- 1847 — FOTO -->
     <div class="tl-item tl-right era-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏭</div>
-          <span class="tl-year">1847</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="molino-california.JPG" alt="Molino California" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-industry"></i></div>
+            <span class="tl-year">1847</span>
+          </div>
+          <h3>Nace el Molino California</h3>
+          <p>El Molino California inicia sus operaciones y se transforma en uno de los símbolos industriales del sector.</p>
         </div>
-        <h3>Nace el Molino California</h3>
-        <p>El Molino California inicia sus operaciones y se transforma en uno de los símbolos industriales del sector.</p>
       </div>
     </div>
 
-    <!-- 1850 -->
+    <!-- 1850 — FOTO -->
     <div class="tl-item tl-left era-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">⛵</div>
-          <span class="tl-year">1850 aprox.</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="puerto-tomé.JPG" alt="Puerto de Tomé" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-ship"></i></div>
+            <span class="tl-year">1850 aprox.</span>
+          </div>
+          <h3>Tomé como puerto harinero</h3>
+          <p>Tomé se posiciona como punto relevante de exportación de harina, conectando su desarrollo local con mercados internacionales.</p>
         </div>
-        <h3>Tomé como puerto harinero</h3>
-        <p>Tomé se posiciona como punto relevante de exportación de harina, conectando su desarrollo local con mercados internacionales.</p>
       </div>
     </div>
 
-    <!-- 1858 -->
+    <!-- 1858 — FOTO -->
     <div class="tl-item tl-right era-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">⚓</div>
-          <span class="tl-year">1858</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="puerto-tomé.JPG" alt="Puerto Mayor de Tomé" style="object-position:center 60%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-anchor"></i></div>
+            <span class="tl-year">1858</span>
+          </div>
+          <h3>Tomé es declarado Puerto Mayor</h3>
+          <p>Se fortalece el comercio, la conectividad y el movimiento de productos agrícolas.</p>
         </div>
-        <h3>Tomé es declarado Puerto Mayor</h3>
-        <p>Se fortalece el comercio, la conectividad y el movimiento de productos agrícolas.</p>
       </div>
     </div>
 
-    <!-- 1896 -->
+    <!-- 1896 — FOTO -->
     <div class="tl-item tl-left era-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🚡</div>
-          <span class="tl-year">1896</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="tren-aereo.JPG" alt="Tren aéreo Molino California" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-train"></i></div>
+            <span class="tl-year">1896</span>
+          </div>
+          <h3>Ferrocarril aéreo del Molino California</h3>
+          <p>Se implementa un sistema pionero para trasladar harina hacia la zona de embarque.</p>
         </div>
-        <h3>Ferrocarril aéreo del Molino California</h3>
-        <p>Se implementa un sistema pionero para trasladar harina hacia la zona de embarque.</p>
       </div>
     </div>
 
-    <!-- 1908 -->
+    <!-- 1908 — FOTO -->
     <div class="tl-item tl-right era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏫</div>
-          <span class="tl-year">1908</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="fundación-escuela.JPG" alt="Fundación Escuela California" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-school"></i></div>
+            <span class="tl-year">1908</span>
+          </div>
+          <h3>Fundación de la Escuela California</h3>
+          <p>La escuela nace en un contexto de crecimiento del barrio, ligada a las familias trabajadoras del sector.</p>
         </div>
-        <h3>Fundación de la Escuela California</h3>
-        <p>La escuela nace en un contexto de crecimiento del barrio, ligada a las familias trabajadoras del sector.</p>
       </div>
     </div>
 
-    <!-- 1910-1930 -->
+    <!-- 1910-1930 — FOTO -->
     <div class="tl-item tl-left era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏙️</div>
-          <span class="tl-year">1910 – 1930</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="vendedor-de-vino.JPG" alt="Tomé ciudad industrial" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-city"></i></div>
+            <span class="tl-year">1910 – 1930</span>
+          </div>
+          <h3>Tomé se consolida como ciudad industrial</h3>
+          <p>Molinos, fábricas, actividad portuaria y crecimiento urbano impulsan una etapa de transformación social y económica.</p>
         </div>
-        <h3>Tomé se consolida como ciudad industrial</h3>
-        <p>Molinos, fábricas, actividad portuaria y crecimiento urbano impulsan una etapa de transformación social y económica.</p>
       </div>
     </div>
 
-    <!-- 1912 -->
+    <!-- 1912 — FOTO -->
     <div class="tl-item tl-right era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🚂</div>
-          <span class="tl-year">1912</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="llega-ferrocarril.JPG" alt="Llegada del ferrocarril a Tomé" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-train-tram"></i></div>
+            <span class="tl-year">1912</span>
+          </div>
+          <h3>Llegada del ferrocarril</h3>
+          <p>La conexión ferroviaria fortalece el traslado de personas, productos y oportunidades para la comuna.</p>
         </div>
-        <h3>Llegada del ferrocarril</h3>
-        <p>La conexión ferroviaria fortalece el traslado de personas, productos y oportunidades para la comuna.</p>
       </div>
     </div>
 
-    <!-- 1947 -->
+    <!-- 1947 — FOTO -->
     <div class="tl-item tl-left era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🌅</div>
-          <span class="tl-year">1947</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap"><img src="cierra-molino.JPG" alt="Cierre Molino California" style="object-position:center 40%;"></div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-door-closed"></i></div>
+            <span class="tl-year">1947</span>
+          </div>
+          <h3>Cierre del Molino California</h3>
+          <p>Finaliza una etapa fundamental de la historia industrial del barrio, dejando una huella importante en la memoria local.</p>
         </div>
-        <h3>Cierre del Molino California</h3>
-        <p>Finaliza una etapa fundamental de la historia industrial del barrio, dejando una huella importante en la memoria local.</p>
       </div>
     </div>
 
-    <!-- 1960 -->
+    <!-- 1960 — FOTO -->
     <div class="tl-item tl-right era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🪨</div>
-          <span class="tl-year">1960</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="escuela desde fuera.png" alt="Escuela California edificio" style="object-position:center 50%;">
         </div>
-        <h3>Piedra fundacional del actual establecimiento</h3>
-        <p>Se inicia una nueva etapa en la infraestructura escolar con la colocación de la piedra fundacional del edificio actual.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-landmark"></i></div>
+            <span class="tl-year">1960</span>
+          </div>
+          <h3>Piedra fundacional del actual establecimiento</h3>
+          <p>Se inicia una nueva etapa en la infraestructura escolar con la colocación de la piedra fundacional.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 1964 -->
+    <!-- 1964 — FOTO -->
     <div class="tl-item tl-left era-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🎉</div>
-          <span class="tl-year">1964</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="escuela desde fuera-original.png" alt="Inauguración edificio escuela" style="object-position:center 30%;">
         </div>
-        <h3>Inauguración del edificio actual</h3>
-        <p>La escuela consolida su presencia física en el barrio como espacio educativo reconocido por la comunidad.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-flag"></i></div>
+            <span class="tl-year">1964</span>
+          </div>
+          <h3>Inauguración del edificio actual</h3>
+          <p>La escuela consolida su presencia física en el barrio como espacio educativo reconocido por la comunidad.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 1978 -->
+    <!-- 1978 — ícono FA -->
     <div class="tl-item tl-right era-3">
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-year-row">
-          <div class="tl-icon">📋</div>
+          <div class="tl-icon"><i class="fa-solid fa-building-columns"></i></div>
           <span class="tl-year">1978</span>
         </div>
         <h3>Nuevo hito institucional</h3>
-        <p>Se registra una etapa relevante en la historia interna de la escuela, asociada a mejoras, ampliaciones o reorganización institucional. <em style="color:#888;">(Dato pendiente de precisión.)</em></p>
+        <p>Se registra una etapa relevante en la historia interna de la escuela. <em style="color:#888;font-size:.78rem;">(Dato pendiente de precisión.)</em></p>
       </div>
     </div>
 
-    <!-- 2008 -->
+    <!-- 2008 — FOTO -->
     <div class="tl-item tl-left era-3">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🎂</div>
-          <span class="tl-year">2008</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="ninos-dentro-de-la-escuela.JPG" alt="Centenario escuela 2008" style="object-position:center 40%;">
         </div>
-        <h3>100 años de historia escolar</h3>
-        <p>La Escuela California celebra su centenario, reuniendo a la comunidad educativa en torno a su trayectoria.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-star"></i></div>
+            <span class="tl-year">2008</span>
+          </div>
+          <h3>100 años de historia escolar</h3>
+          <p>La Escuela California celebra su centenario, reuniendo a la comunidad en torno a su trayectoria.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 2015 -->
+    <!-- 2015 — FOTO -->
     <div class="tl-item tl-right era-4">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏘️</div>
-          <span class="tl-year">2015</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="quiero-mi-barrio.JPG" alt="Quiero Mi Barrio" style="object-position:center 40%;">
         </div>
-        <h3>Barrio California ingresa a "Quiero Mi Barrio"</h3>
-        <p>El sector concreta su compromiso con el programa, iniciando un proceso participativo donde la comunidad identifica necesidades y proyecta mejoras.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+            <span class="tl-year">2015</span>
+          </div>
+          <h3>Barrio California ingresa a "Quiero Mi Barrio"</h3>
+          <p>La comunidad inicia un proceso participativo para identificar necesidades y proyectar mejoras.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 2015-2021 -->
+    <!-- 2015-2021 — FOTO -->
+    <div class="tl-item tl-left era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="foto en la plaza.jpg" alt="Comunidad educativa" style="object-position:center 50%;">
+        </div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-people-group"></i></div>
+            <span class="tl-year">2015 – 2021</span>
+          </div>
+          <h3>La comunidad reconoce a la escuela como espacio clave</h3>
+          <p>Vecinos y vecinas destacan la importancia de la escuela y priorizan mejoras en el establecimiento.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2018 — FOTO -->
+    <div class="tl-item tl-right era-4">
+      <div class="tl-dot"></div>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="110-anos.JPG" alt="110 años escuela" style="object-position:center 40%;">
+        </div>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-trophy"></i></div>
+            <span class="tl-year">2018</span>
+          </div>
+          <h3>110 años de la escuela</h3>
+          <p>La comunidad educativa conmemora más de un siglo de trayectoria con actividades que honran su historia.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2020 — ícono FA -->
     <div class="tl-item tl-left era-4">
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-year-row">
-          <div class="tl-icon">🤝</div>
-          <span class="tl-year">2015 – 2021</span>
-        </div>
-        <h3>La comunidad reconoce a la escuela como espacio clave</h3>
-        <p>Vecinos y vecinas destacan la importancia de la escuela para el barrio y priorizan mejoras en el establecimiento.</p>
-      </div>
-    </div>
-
-    <!-- 2018 -->
-    <div class="tl-item tl-right era-4">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏆</div>
-          <span class="tl-year">2018</span>
-        </div>
-        <h3>110 años de la escuela</h3>
-        <p>La comunidad educativa conmemora más de un siglo de trayectoria con actividades que honran su historia.</p>
-      </div>
-    </div>
-
-    <!-- 2020 -->
-    <div class="tl-item tl-left era-4">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🔨</div>
+          <div class="tl-icon"><i class="fa-solid fa-hammer"></i></div>
           <span class="tl-year">2020</span>
         </div>
         <h3>Inicio de mejoras en la Escuela California</h3>
@@ -4670,55 +4739,75 @@
       </div>
     </div>
 
-    <!-- 2021 -->
+    <!-- 2021 — FOTO -->
     <div class="tl-item tl-right era-4">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🏗️</div>
-          <span class="tl-year">2021</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="escuela desde fuera.png" alt="Obras escuela 2021" style="object-position:center 40%;">
         </div>
-        <h3>Consolidación de obras en el establecimiento</h3>
-        <p>Las mejoras fortalecen la infraestructura escolar y reafirman el rol comunitario de la escuela.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <span class="tl-year">2021</span>
+          </div>
+          <h3>Consolidación de obras en el establecimiento</h3>
+          <p>Las mejoras fortalecen la infraestructura escolar y reafirman el rol comunitario de la escuela.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 2021-2023 -->
+    <!-- 2021-2023 — FOTO -->
     <div class="tl-item tl-left era-4">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">🌟</div>
-          <span class="tl-year">2021 – 2023</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="escuela desde fuera.png" alt="Escuela Patrimonial California" style="object-position:center 20%;">
         </div>
-        <h3>Consolidación como "Escuela Patrimonial California"</h3>
-        <p>La comunidad educativa comienza a utilizar públicamente esta denominación, reflejando una identidad basada en su historia y vínculo con el barrio.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-certificate"></i></div>
+            <span class="tl-year">2021 – 2023</span>
+          </div>
+          <h3>Consolidación como "Escuela Patrimonial California"</h3>
+          <p>La comunidad adopta públicamente esta denominación, reflejando una identidad basada en su historia y vínculo con el barrio.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 2023 -->
+    <!-- 2023 — FOTO -->
     <div class="tl-item tl-right era-4">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-year-row">
-          <div class="tl-icon">📅</div>
-          <span class="tl-year">2023</span>
+      <div class="tl-card tl-card-photo">
+        <div class="tl-photo-wrap">
+          <img src="ninos-dentro-de-la-escuela.JPG" alt="115 años escuela" style="object-position:center 30%;">
         </div>
-        <h3>115 años de historia</h3>
-        <p>La escuela celebra una nueva etapa de su trayectoria, manteniendo viva la memoria de quienes han sido parte de ella.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <span class="tl-year">2023</span>
+          </div>
+          <h3>115 años de historia</h3>
+          <p>La escuela celebra una nueva etapa de su trayectoria, manteniendo viva la memoria de quienes han sido parte de ella.</p>
+        </div>
       </div>
     </div>
 
-    <!-- 2026 -->
+    <!-- 2026 — FOTO destacada -->
     <div class="tl-item tl-left era-4">
       <div class="tl-dot"></div>
-      <div class="tl-card" style="border-top-width:5px;box-shadow:0 8px 36px rgba(13,156,122,.35);">
-        <div class="tl-year-row">
-          <div class="tl-icon">🌐</div>
-          <span class="tl-year">2026 · Hoy</span>
+      <div class="tl-card tl-card-photo" style="box-shadow:0 8px 36px rgba(13,156,122,.4);">
+        <div class="tl-photo-wrap" style="height:155px;">
+          <img src="escuela-hoy.JPG" alt="Escuela Patrimonial California hoy" style="object-position:center 40%;">
         </div>
-        <h3>Escuela Patrimonial California hoy</h3>
-        <p>La escuela proyecta su identidad mediante su página web, actividades comunitarias, proyectos escolares y rescate de memoria local.</p>
+        <div class="tl-card-inner">
+          <div class="tl-year-row">
+            <div class="tl-icon"><i class="fa-solid fa-globe"></i></div>
+            <span class="tl-year">2026 · Hoy</span>
+          </div>
+          <h3>Escuela Patrimonial California hoy</h3>
+          <p>La escuela proyecta su identidad mediante su página web, actividades comunitarias, proyectos escolares y rescate de memoria local.</p>
+        </div>
       </div>
     </div>
 
