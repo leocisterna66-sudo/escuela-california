@@ -340,31 +340,35 @@
       min-height: 92vh;
       display: flex; align-items: center;
     }
-    .hero-bg-img {
-      position: absolute; inset: 0;
-      background-image: url('escuela desde fuera.png');
-      background-size: cover;
-      background-position: center 30%;
-      background-repeat: no-repeat;
-      z-index: 0;
-      transform: scale(1.04);
-      transition: transform 8s ease;
+    /* Slider hero */
+    .hero-slider {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
     }
-    .hero:hover .hero-bg-img { transform: scale(1); }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 1.6s ease, transform 7s ease;
+      will-change: opacity, transform;
+    }
+    .hero-slide.active  { opacity: 1; transform: scale(1); }
+    .hero-slide.exiting { opacity: 0; transform: scale(0.97); transition: opacity 1.6s ease, transform 1.6s ease; }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
         105deg,
-        rgba(14,26,38,.85) 0%,
-        rgba(28,46,64,.72) 40%,
-        rgba(28,46,64,.42) 70%,
-        rgba(0,0,0,.20) 100%
+        rgba(14,26,38,.82) 0%,
+        rgba(28,46,64,.65) 38%,
+        rgba(28,46,64,.18) 65%,
+        rgba(0,0,0,.0) 100%
       );
     }
     .hero-overlay-bottom {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      height: 120px;
-      background: linear-gradient(to top, var(--off-white), transparent);
+      height: 80px;
+      background: linear-gradient(to top, rgba(255,255,255,.25), transparent);
     }
     .hero-bg-pattern { display: none; }
     .hero-glow { display: none; }
@@ -2630,7 +2634,7 @@
 
   /* Desktop: ≥1025px — inicio visible completo sin scroll */
   @media (min-width: 1025px) {
-    .hero { min-height: 0 !important; padding: 3rem 2rem 7.5rem !important; }
+    .hero { min-height: 0 !important; padding: 3rem 2rem 3rem !important; }
     .hero h2 { font-size: 3rem !important; margin-bottom: .7rem; }
     .hero-desc { font-size: .9rem; margin-bottom: 1rem; }
     .hero-label { margin-bottom: .8rem; padding: .28rem .9rem; }
@@ -2638,7 +2642,7 @@
     .hero-seal { top: 1.8rem; right: 2.2rem; }
     .hero-seal-frame img { width: 100px; height: 100px; }
     .hero-admision { top: 3rem; right: 13rem; }
-    .hero-strip { height: 130px; margin: -4.5rem 2.5rem 0; border-radius: 18px 18px 0 0; }
+    .hero-strip { display: none !important; }
     .quickbar { padding: .4rem 1.5rem .5rem; }
     .quickbar-title { margin-bottom: .4rem; }
     .quickbar-grid { gap: .4rem; grid-template-columns: repeat(12, 1fr) !important; max-width: 100%; }
@@ -2817,7 +2821,11 @@
 </div>
 <div class="view active" id="view-inicio">
 <section class="hero" id="inicio">
-  <div class="hero-bg-img"></div>
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide" style="background-image:url('escuela desde fuera.png'); background-position:center 30%;"></div>
+    <div class="hero-slide" style="background-image:url('foto en la plaza.jpg'); background-position:center 70%;"></div>
+    <div class="hero-slide" style="background-image:url('ninos-dentro-de-la-escuela.JPG'); background-position:center 35%;"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay-bottom"></div>
   <div class="hero-bg-pattern"></div>
@@ -4483,6 +4491,25 @@
 
   /* ?? Hamburger toggle (mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½vil) ?? */
   const hamburger = document.querySelector('.hamburger');
+  /* ── Hero Slider ── */
+  (function(){
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+    let cur = 0;
+    slides[0].classList.add('active');
+    setInterval(function(){
+      const next = (cur + 1) % slides.length;
+      slides[cur].classList.remove('active');
+      slides[cur].classList.add('exiting');
+      slides[next].classList.add('active');
+      const prev = cur;
+      setTimeout(function(){
+        slides[prev].classList.remove('exiting');
+      }, 1100);
+      cur = next;
+    }, 6000);
+  })();
+
   const mainNav   = document.getElementById('main-nav');
 
   function toggleNav() {
