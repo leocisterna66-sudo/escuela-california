@@ -5384,39 +5384,78 @@
     return rows;
   }
 
-  // Carga fotos desde Google Sheets CSV cuando la URL esté configurada
+  // Convierte URL de Google Drive a URL directa de imagen
+  function driveToImg(url) {
+    if (!url) return '';
+    const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    return m ? 'https://drive.google.com/uc?export=view&id=' + m[1] : url;
+  }
+
+  // Reconstruye una grilla de tarjetas desde los datos del Sheet
+  function buildEquipoGrid(grid, members, isGold) {
+    grid.innerHTML = '';
+    members.forEach(function(m) {
+      const card = document.createElement('div');
+      card.className = 'equipo-card';
+      card.innerHTML =
+        '<div class="equipo-card-avatar"></div>' +
+        '<div class="equipo-card-body">' +
+          '<p class="equipo-card-name">' + m.nombre + '</p>' +
+          '<span class="equipo-card-role' + (isGold ? ' gold' : '') + '">' + m.cargo + '</span>' +
+        '</div>';
+      grid.appendChild(card);
+      if (m.foto) setEquipoPhoto(card, driveToImg(m.foto));
+    });
+  }
+
+  // Carga nombres, cargos y fotos desde Google Sheets — reconstruye las tarjetas completas
   function loadEquipoFromSheets() {
     if (!EQUIPO_CSV_URL) { initEquipoAvatars(); return; }
     fetch(EQUIPO_CSV_URL)
-      .then(r => { if (!r.ok) throw new Error('fetch'); return r.text(); })
-      .then(csv => {
+      .then(function(r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function(csv) {
         const rows = parseCSV(csv);
-        // Buscar fila de encabezados (contiene "Nombre")
-        const headerIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('nombre'));
-        const dataRows = headerIdx >= 0 ? rows.slice(headerIdx + 1) : rows.slice(2);
-
-        dataRows.forEach(function(cols) {
-          const nombre = (cols[0] || '').trim();
-          const foto   = (cols[3] || '').trim();
-          // Saltar filas vacías o separadoras
-          if (!nombre || nombre.startsWith('─') || nombre.startsWith('INSTRUC')) return;
-          if (!foto) return;
-          // Convertir URL de Drive a URL directa de imagen
-          let fotoUrl = foto;
-          const driveMatch = foto.match(/\/d\/([a-zA-Z0-9_-]+)/);
-          if (driveMatch) {
-            fotoUrl = 'https://drive.google.com/uc?export=view&id=' + driveMatch[1];
-          }
-          // Buscar la tarjeta por nombre y asignar foto
-          document.querySelectorAll('.equipo-card-name').forEach(function(el) {
-            if (el.textContent.trim().toLowerCase() === nombre.toLowerCase()) {
-              setEquipoPhoto(el.closest('.equipo-card'), fotoUrl);
-            }
-          });
+        // Localizar fila de encabezados
+        const hIdx = rows.findIndex(function(r) {
+          return r[0] && r[0].toLowerCase().replace(/[^a-z]/g,'').includes('nombre');
         });
-        initEquipoAvatars(); // avatares de iniciales para quienes no tienen foto
+        const data = hIdx >= 0 ? rows.slice(hIdx + 1) : rows.slice(2);
+
+        // Agrupar por pestaña
+        const groups = { 'gestión': [], 'docentes': [], 'asistentes': [] };
+        data.forEach(function(cols) {
+          const nombre  = (cols[0] || '').trim();
+          const cargo   = (cols[1] || '').trim();
+          const pestana = (cols[2] || '').trim().toLowerCase()
+                          .normalize('NFD').replace(/[̀-ͯ]/g,''); // quita tildes
+          const foto    = (cols[3] || '').trim();
+          // Saltar filas vacías, de instrucciones o separadoras
+          if (!nombre || cargo.includes('──') || nombre.includes('──')) return;
+          if (nombre.toLowerCase().includes('instruc')) return;
+          // Normalizar nombre de pestaña
+          const tab = pestana.startsWith('gest') ? 'gestión'
+                    : pestana.startsWith('doc')  ? 'docentes'
+                    : pestana.startsWith('asis') ? 'asistentes'
+                    : null;
+          if (tab) groups[tab].push({ nombre, cargo, foto });
+        });
+
+        // Reconstruir cada panel con los datos del Sheet
+        [['gestión',false],['docentes',false],['asistentes',true]].forEach(function(pair) {
+          const tab = pair[0], isGold = pair[1];
+          const panel = document.getElementById('panel-' + tab);
+          if (!panel) return;
+          const grid = panel.querySelector('.equipo-grid');
+          if (!grid || !groups[tab].length) return;
+          buildEquipoGrid(grid, groups[tab], isGold);
+        });
+
+        initEquipoAvatars(); // iniciales para quienes no tienen foto aún
       })
-      .catch(() => initEquipoAvatars());
+      .catch(function(e) {
+        console.warn('No se pudo cargar el Sheet:', e);
+        initEquipoAvatars();
+      });
   }
 
   // Iniciar al cargar
