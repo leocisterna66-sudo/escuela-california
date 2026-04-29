@@ -5582,6 +5582,114 @@
   document.addEventListener('DOMContentLoaded', loadApoderadosSheets);
 
   /* ══════════════════════════════════════
+     DIRECTIVA GENERAL DE ESTUDIANTES — Google Sheets
+     ══════════════════════════════════════ */
+  const EST_SHEETS = {
+    directiva : '',   // ← pegar URL CSV publicado
+    reuniones : '',   // ← pegar URL CSV publicado
+    actas     : ''    // ← pegar URL CSV publicado
+  };
+
+  const EST_COLORS = {
+    'Presidente/a':'#1565a8','Vicepresidente/a':'#6a1b9a',
+    'Secretario/a':'#c62828','Tesorero/a':'#2e7d32'
+  };
+
+  function buildEstDirectiva(rows) {
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('cargo'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    data.forEach(function(cols) {
+      const cargo  = (cols[0]||'').trim();
+      const nombre = (cols[1]||'').trim();
+      const foto   = (cols[2]||'').trim();
+      if (!cargo) return;
+      // Buscar la card por cargo
+      document.querySelectorAll('.dir-est-cargo').forEach(function(el) {
+        if (el.textContent.trim().toLowerCase() === cargo.toLowerCase()) {
+          const card = el.closest('.dir-est-card');
+          if (!card) return;
+          // Actualizar nombre
+          const nombreEl = card.querySelector('.dir-est-nombre');
+          if (nombreEl) nombreEl.textContent = nombre || 'Por designar';
+          // Actualizar foto si tiene
+          if (foto) {
+            const av = card.querySelector('.dir-est-avatar');
+            if (av) {
+              const color = EST_COLORS[cargo] || '#455a64';
+              const initials = nombre ? nombre.split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase() : '?';
+              av.innerHTML = foto
+                ? '<img src="'+driveToImg(foto)+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" onerror="this.outerHTML=\''+initials+'\'">'
+                : initials;
+              if (!foto) av.style.fontSize = '1.4rem';
+            }
+          }
+        }
+      });
+    });
+  }
+
+  function buildEstReuniones(rows) {
+    const list = document.getElementById('est-reuniones-list');
+    if (!list) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].match(/n[°ú]/i));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const items = data.filter(r => r[1] && r[1].trim() && !r[1].toLowerCase().includes('ej:'));
+    if (!items.length) return; // mantener placeholders
+    list.innerHTML = '';
+    items.forEach(function(cols) {
+      const num   = (cols[0]||'').trim();
+      const fecha = (cols[1]||'').trim();
+      const hora  = (cols[2]||'').trim();
+      const lugar = (cols[3]||'').trim();
+      const desc  = (cols[4]||'').trim();
+      const estado= (cols[5]||'Pendiente').trim();
+      const realizada = estado.toLowerCase().includes('realiz');
+      list.innerHTML += '<details class="acord-est">'
+        + '<summary><i class="fa-'+(realizada?'solid':'regular')+' fa-calendar'+(realizada?'-check':'')+'" style="color:'+(realizada?'#2e7d32':'#1565a8')+'"></i>'
+        + ' Reunión N°'+num+' — <em>'+fecha+(hora?' · '+hora:'')+'</em>'
+        + '<span style="margin-left:.4rem;font-size:.7rem;font-weight:700;color:#fff;background:'+(realizada?'#2e7d32':'#1565a8')+';padding:.12rem .45rem;border-radius:20px;">'+estado+'</span>'
+        + '<i class="fa-solid fa-chevron-right acord-arr"></i></summary>'
+        + '<div class="acord-body">'
+        + (lugar ? '<p style="margin:0 0 .4rem;"><i class="fa-solid fa-location-dot" style="color:#888;margin-right:.4rem;"></i>'+lugar+'</p>' : '')
+        + (desc  ? '<p style="margin:0;">'+desc+'</p>' : '<p style="margin:0;color:#aaa;">Sin descripción disponible.</p>')
+        + '</div></details>';
+    });
+  }
+
+  function buildEstActas(rows) {
+    const list = document.getElementById('est-actas-list');
+    if (!list) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('t') && r[0].toLowerCase().includes('tulo'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const items = data.filter(r => r[0] && r[0].trim() && !r[0].toLowerCase().includes('ej:'));
+    if (!items.length) return; // mantener placeholders
+    list.innerHTML = '';
+    items.forEach(function(cols) {
+      const titulo = (cols[0]||'').trim();
+      const fecha  = (cols[1]||'').trim();
+      const url    = (cols[2]||'').trim();
+      const desc   = (cols[3]||'').trim();
+      list.innerHTML += '<details class="acord-est">'
+        + '<summary><i class="fa-solid fa-file-lines" style="color:#2e7d32;"></i>'
+        + ' '+titulo+(fecha?' — <em>'+fecha+'</em>':'')
+        + '<i class="fa-solid fa-chevron-right acord-arr"></i></summary>'
+        + '<div class="acord-body">'
+        + (desc ? '<p style="margin:0 0 .6rem;">'+desc+'</p>' : '')
+        + (url  ? '<a href="'+url+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:#2e7d32;color:#fff;padding:.4rem .9rem;border-radius:10px;font-size:.8rem;font-weight:700;text-decoration:none;"><i class="fa-solid fa-file-arrow-down"></i> Ver acta completa</a>' : '<span style="color:#aaa;font-size:.82rem;">Documento pendiente de publicación.</span>')
+        + '</div></details>';
+    });
+  }
+
+  function loadEstSheets() {
+    if (!EST_SHEETS.directiva && !EST_SHEETS.reuniones && !EST_SHEETS.actas) return;
+    if (EST_SHEETS.directiva) fetch(EST_SHEETS.directiva).then(r=>r.text()).then(csv=>buildEstDirectiva(parseCSV(csv))).catch(()=>{});
+    if (EST_SHEETS.reuniones) fetch(EST_SHEETS.reuniones).then(r=>r.text()).then(csv=>buildEstReuniones(parseCSV(csv))).catch(()=>{});
+    if (EST_SHEETS.actas)     fetch(EST_SHEETS.actas).then(r=>r.text()).then(csv=>buildEstActas(parseCSV(csv))).catch(()=>{});
+  }
+
+  document.addEventListener('DOMContentLoaded', loadEstSheets);
+
+  /* ══════════════════════════════════════
      COMUNIDAD EDUCATIVA — Avatares e iniciales
      ══════════════════════════════════════ */
 
