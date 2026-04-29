@@ -1001,13 +1001,13 @@
     }
 
     /* Tabla MatrÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½cula */
-    tr.matricula-total td {
+    tr.matrícula-total td {
       background: #fff8c0;
       color: #4a3500;
       font-weight: 800;
       border-top: 2px solid #d4b84a;
     }
-    .matricula-genero {
+    .matrícula-genero {
       display: flex; align-items: center; justify-content: center;
       gap: 4rem; padding: 1.4rem 2rem;
       background: var(--verde-bg);
@@ -2592,7 +2592,7 @@
 
     /* Tables: horizontal scroll */
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    #atencion-apoderados { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #atención-apoderados { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
   /* Pantallas muy pequenas: 2 columnas si es necesario */
@@ -2814,7 +2814,7 @@
 #view-alumnos::before        { background-image: url('fondo-4.png'); }
 #view-actividades::before    { background-image: url('fondo-1.png'); }
 #view-familias::before       { background-image: url('fondo-2.png'); }
-#view-participacion::before  { background-image: url('fondo-3.png'); }
+#view-participación::before  { background-image: url('fondo-3.png'); }
 
 /* ── View Navigation System ── */
 .view { display: none; }
@@ -2853,7 +2853,7 @@
   <div class="topbar-left">
     <span style="display:flex;align-items:center;gap:.4rem;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Recoleta 1642, Sector California, Tome, Provincia de Concepcion
+      Recoleta 1642, Sector California, Tome, Provincia de Concepción
     </span>
     <span style="display:flex;align-items:center;gap:.4rem;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -2884,7 +2884,7 @@
       </div>
       <div class="logo-info">
         <h1>Escuela Patrimonial California</h1>
-        <span>Tome, Region del Biobio</span>
+        <span>Tome, Region del Biobío</span>
       </div>
     </a>
     <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false">
@@ -2944,7 +2944,7 @@
       </div>
 
       <!-- Sugerencias -->
-      <div class="nav-item"><a href="#sugerencias" class="nav-link" onclick="goTo('participacion','sugerencias');return false;">Sugerencias</a></div>
+      <div class="nav-item"><a href="#sugerencias" class="nav-link" onclick="goTo('participación','sugerencias');return false;">Sugerencias</a></div>
     </nav>
   </div>
 </header>
@@ -2981,22 +2981,22 @@
     </a>
   </div>
   <div class="hero-seal">
-    <div class="hero-seal-frame"><img src="sello-excelencia.png" alt="Sello Excelencia Academica"/></div>
-    <span class="hero-seal-label">Excelencia Academica</span>
+    <div class="hero-seal-frame"><img src="sello-excelencia.png" alt="Sello Excelencia Académica"/></div>
+    <span class="hero-seal-label">Excelencia Académica</span>
     <span class="hero-seal-label" style="letter-spacing:.15em; opacity:.55;">2026 - 2027</span>
   </div>
   <div class="hero-inner">
     <div class="hero-text">
       <a href="https://maps.app.goo.gl/sGgKadFUKF1BhHWD7" target="_blank" rel="noopener" class="hero-label" style="cursor:pointer; text-decoration:none;">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Recoleta 1642 - Tome, Biobio - Chile
+        Recoleta 1642 - Tome, Biobío - Chile
       </a>
       <h2>Escuela<br><span class="highlight">Patrimonial</span><br>California</h2>
       <p class="hero-desc">Formamos personas integras, con identidad y compromiso con su comunidad. Una escuela que une tradicion, valores y aprendizaje de calidad.</p>
       <div class="hero-bottom-row">
         <div class="hero-actions">
           <a href="#quienes-somos" class="btn btn-primary" onclick="showView('quienes-somos');return false;">Conoce la Escuela</a>
-          <a href="#sugerencias" class="btn btn-ghost" onclick="goTo('participacion','sugerencias');return false;">Contactanos</a>
+          <a href="#sugerencias" class="btn btn-ghost" onclick="goTo('participación','sugerencias');return false;">Contactanos</a>
         </div>
         <div class="hero-social">
           <span class="hero-social-label">Siguenos</span>
@@ -3013,11 +3013,11 @@
       <div class="hero-strip-caption">Vista exterior</div>
     </div>
     <div class="hero-strip-cell hero-strip-mid">
-      <img src="sello-excelencia.png" alt="Sello Excelencia Academica"/>
+      <img src="sello-excelencia.png" alt="Sello Excelencia Académica"/>
     </div>
     <div class="hero-strip-cell">
       <img src="ninos-dentro-de-la-escuela.JPG" alt="Ninos dentro de la escuela"/>
-      <div class="hero-strip-caption">Excelencia academica</div>
+      <div class="hero-strip-caption">Excelencia académica</div>
     </div>
   </div>
 </div>
@@ -3089,7 +3089,7 @@
       </div>
       <div class="news-card">
         <div class="news-thumb nt-2" onclick="openNewsLightbox('noticias/caminata recreativa.JPG','Caminata Recreativa - Dia Mundial de la Actividad Fisica')" style="cursor:zoom-in;"><img src="noticias/caminata recreativa.JPG" alt="Caminata Recreativa" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-        <div class="news-body"><span class="news-tag tag-o">VIDA SANA</span><h3>Caminata recreativa por el Dia Mundial de la Actividad Fisica</h3><p>El 7 de abril, estudiantes y docentes participaron en una caminata recreativa organizada en el marco del Dia Mundial de la Actividad Fisica. La iniciativa fue impulsada por el Programa Vida Sana, con el objetivo de fomentar habitos de vida saludable en nuestra comunidad.</p><div class="news-footer"><span class="news-date">7 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
+        <div class="news-body"><span class="news-tag tag-o">VIDA SANA</span><h3>Caminata recreativa por el Dia Mundial de la Actividad Fisica</h3><p>El 7 de abril, estudiantes y docentes participaron en una caminata recreativa organizada en el marco del Dia Mundial de la Actividad Fisica. La iniciativa fue impulsada por el Programa Vida Sana, con el objetivo de fomentar hábitos de vida saludable en nuestra comunidad.</p><div class="news-footer"><span class="news-date">7 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
       </div>
       <div class="news-card">
         <div class="news-thumb nt-3" onclick="openNewsLightbox('noticias/jornada-vacunacion.JPG','Jornada de Vacunacion contra la Influenza')" style="cursor:zoom-in;"><img src="noticias/jornada-vacunacion.JPG" alt="Vacunacion Influenza" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
@@ -3110,7 +3110,7 @@
         <div class="galeria-card-body"><h3>Album en Facebook</h3><p>Fotos de actos institucionales, talleres, actividades deportivas, celebraciones y vida escolar de nuestra comunidad. Actualizado constantemente.</p><a href="https://www.facebook.com/escuelapatrimonialcalifornia/photos_albums?locale=es_LA" target="_blank" rel="noopener" class="galeria-btn gb-fb">Ver album en Facebook</a></div>
       </div>
       <div class="galeria-card">
-        <div class="galeria-card-cover"><img src="excelencia-academica-con-ninos.jpg" alt="Actividades escuela" loading="lazy"/><div class="galeria-card-overlay"><div class="galeria-network-icon ig"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><span class="galeria-network-label">Instagram</span></div></div>
+        <div class="galeria-card-cover"><img src="excelencia-académica-con-ninos.jpg" alt="Actividades escuela" loading="lazy"/><div class="galeria-card-overlay"><div class="galeria-network-icon ig"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><span class="galeria-network-label">Instagram</span></div></div>
         <div class="galeria-card-body"><h3>Galeria en Instagram</h3><p>Imagenes destacadas de nuestras actividades diarias, logros estudiantiles y el espiritu de nuestra comunidad escolar. Siguenos para no perderte nada.</p><a href="https://www.instagram.com/escuelapatrimonialcalifornia/" target="_blank" rel="noopener" class="galeria-btn gb-ig">Ver galeria en Instagram</a></div>
       </div>
     </div>
@@ -3128,17 +3128,17 @@
     <div class="qs-grid" style="margin-bottom:3rem;">
       <div class="qs-text">
         <div class="highlight-box">
-          <p>Nuestros sellos educativos, <strong>Conciencia Patrimonial</strong> y <strong>Ambiente de Sana Convivencia</strong>, guian cada accion pedagogica de nuestra comunidad escolar.</p>
+          <p>Nuestros sellos educativos, <strong>Conciencia Patrimonial</strong> y <strong>Ambiente de Sana Convivencia</strong>, guían cada acción pedagógica de nuestra comunidad escolar.</p>
         </div>
-        <p>La <strong>Escuela Patrimonial California</strong> es un establecimiento de dependencia municipal ubicado en el sector California de Tome, provincia de Concepcion. Formamos estudiantes desde Educacion Parvularia hasta 8 Basico en jornada escolar completa.</p>
-        <p>Contamos con <strong>94 alumnos</strong> distribuidos en <strong>10 cursos</strong>, con un promedio de 9,4 estudiantes por curso, lo que nos permite brindar una atencion cercana, personalizada y de calidad.</p>
+        <p>La <strong>Escuela Patrimonial California</strong> es un establecimiento de dependencia municipal ubicado en el sector California de Tomé, provincia de Concepción. Formamos estudiantes desde Educación Parvularia hasta 8 Básico en jornada escolar completa.</p>
+        <p>Contamos con <strong>94 alumnos</strong> distribuidos en <strong>10 cursos</strong>, con un promedio de 9,4 estudiantes por curso, lo que nos permite brindar una atención cercana, personalizada y de calidad.</p>
 
         <div class="values-grid" style="margin-top:1.5rem;">
           <div class="value-item">
             <div class="value-icon"><i class="fa-solid fa-landmark-dome" aria-hidden="true"></i></div>
             <div>
               <h4>Conciencia Patrimonial</h4>
-              <p>Sello educativo que reconoce y valora la identidad historica y cultural del sector California.</p>
+              <p>Sello educativo que reconoce y valora la identidad histórica y cultural del sector California.</p>
             </div>
           </div>
           <div class="value-item">
@@ -3152,7 +3152,7 @@
             <div class="value-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
             <div>
               <h4>Programa de Integracion Escolar</h4>
-              <p>Apoyamos la inclusion y el aprendizaje de todos los estudiantes a traves del PIE.</p>
+              <p>Apoyamos la inclusión y el aprendizaje de todos los estudiantes a través del PIE.</p>
             </div>
           </div>
           <div class="value-item">
@@ -3183,7 +3183,7 @@
               </div>
               <div class="qs-stat">
                 <div class="icon"><i class="fa-solid fa-school" aria-hidden="true"></i></div>
-                <div class="label">Parvularia a 8 Basico</div>
+                <div class="label">Parvularia a 8 Básico</div>
               </div>
               <div class="qs-stat">
                 <div class="icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
@@ -3227,12 +3227,12 @@
           <p class="ficha-value">4840-2</p>
         </div>
         <div class="ficha-cell" style="border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
-          <p class="ficha-label">Direccion</p>
+          <p class="ficha-label">Dirección</p>
           <p class="ficha-value">Recoleta 1642, Sector California, Tome</p>
         </div>
         <div class="ficha-cell" style="border-bottom:1px solid var(--border);border-right:1px solid var(--border);">
           <p class="ficha-label">Dependencia</p>
-          <p class="ficha-value">Municipal - Provincia de Concepcion</p>
+          <p class="ficha-value">Municipal - Provincia de Concepción</p>
         </div>
         <div class="ficha-cell" style="border-bottom:1px solid var(--border);">
           <p class="ficha-label">Correo contacto</p>
@@ -3240,14 +3240,14 @@
         </div>
         <div class="ficha-cell" style="border-right:1px solid var(--border);">
           <p class="ficha-label">Modalidad</p>
-          <p class="ficha-value">Educacion Parvularia y Enseñanza Basica</p>
+          <p class="ficha-value">Educación Parvularia y Enseñanza Basica</p>
         </div>
         <div class="ficha-cell" style="border-right:1px solid var(--border);">
           <p class="ficha-label">Jornada</p>
-          <p class="ficha-value">Escolar completa - Parvularia a 8 Basico</p>
+          <p class="ficha-value">Escolar completa - Parvularia a 8 Básico</p>
         </div>
         <div class="ficha-cell">
-          <p class="ficha-label">Matricula 2026</p>
+          <p class="ficha-label">Matrícula 2026</p>
           <p class="ficha-value">94 alumnos - 10 cursos - Promedio 9,4 alumnos por curso</p>
         </div>
       </div>
@@ -3279,22 +3279,22 @@
       <div class="section-eyebrow">Comunidad Educativa</div>
       <h3>Nuestro Equipo</h3>
       <div class="section-line"></div>
-      <p>Personas comprometidas con la educacion y el desarrollo integral de cada estudiante.</p>
+      <p>Personas comprometidas con la educación y el desarrollo integral de cada estudiante.</p>
 
       <div class="equipo-tabs" role="tablist">
-        <button class="equipo-tab active" role="tab" aria-selected="true" onclick="switchEquipoTab('gestion')" id="tab-gestion">
-          <i class="fa-solid fa-star" aria-hidden="true"></i> Equipo de Gestion
+        <button class="equipo-tab active" role="tab" aria-selected="true" onclick="switchEquipoTab('gestión')" id="tab-gestión">
+          <i class="fa-solid fa-star" aria-hidden="true"></i> Equipo de Gestión
         </button>
         <button class="equipo-tab" role="tab" aria-selected="false" onclick="switchEquipoTab('docentes')" id="tab-docentes">
           <i class="fa-solid fa-chalkboard-teacher" aria-hidden="true"></i> Docentes
         </button>
         <button class="equipo-tab" role="tab" aria-selected="false" onclick="switchEquipoTab('asistentes')" id="tab-asistentes">
-          <i class="fa-solid fa-people-group" aria-hidden="true"></i> Asistentes de la Educacion
+          <i class="fa-solid fa-people-group" aria-hidden="true"></i> Asistentes de la Educación
         </button>
       </div>
 
       <!-- Panel: Equipo de Gestión -->
-      <div class="equipo-panel active" id="panel-gestion">
+      <div class="equipo-panel active" id="panel-gestión">
         <div class="equipo-grid">
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-user-tie"></i></div>
@@ -3342,21 +3342,21 @@
             <div class="equipo-card-avatar"><i class="fa-solid fa-child"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Claudia Lopez Diaz</p>
-              <span class="equipo-card-role">Educacion Parvularia</span>
+              <span class="equipo-card-role">Educación Parvularia</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-child"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Yary Hernandez Hernandez</p>
-              <span class="equipo-card-role">Educacion Parvularia</span>
+              <span class="equipo-card-role">Educación Parvularia</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-child"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Maria Jose Larenas Mora</p>
-              <span class="equipo-card-role">Educacion Parvularia</span>
+              <span class="equipo-card-role">Educación Parvularia</span>
             </div>
           </div>
           <!-- Primer Ciclo -->
@@ -3364,28 +3364,28 @@
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Carmen Caceres Valenzuela</p>
-              <span class="equipo-card-role">Primer Ciclo Basico</span>
+              <span class="equipo-card-role">Primer Ciclo Básico</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Andrea Ugartemendia Lopez</p>
-              <span class="equipo-card-role">Primer Ciclo Basico</span>
+              <span class="equipo-card-role">Primer Ciclo Básico</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Karen Maldonado Cerda</p>
-              <span class="equipo-card-role">Primer Ciclo Basico</span>
+              <span class="equipo-card-role">Primer Ciclo Básico</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Paulina Salgado Mora</p>
-              <span class="equipo-card-role">Primer Ciclo Basico</span>
+              <span class="equipo-card-role">Primer Ciclo Básico</span>
             </div>
           </div>
           <!-- Segundo Ciclo -->
@@ -3393,49 +3393,49 @@
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Leonardo Cisterna Placencia</p>
-              <span class="equipo-card-role">Matematica</span>
+              <span class="equipo-card-role">Matemática</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Maria Jose Koren Hidalgo</p>
-              <span class="equipo-card-role">Lenguaje y Comunicacion</span>
+              <span class="equipo-card-role">Lenguaje y Comunicación</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Patricia Torres Escobar</p>
-              <span class="equipo-card-role">Lenguaje / Matematica</span>
+              <span class="equipo-card-role">Lenguaje / Matemática</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Miriam Araya Venegas</p>
-              <span class="equipo-card-role">Lenguaje / Matematica</span>
+              <span class="equipo-card-role">Lenguaje / Matemática</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Ana Saavedra Moraga</p>
-              <span class="equipo-card-role">Lenguaje / Matematica</span>
+              <span class="equipo-card-role">Lenguaje / Matemática</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Nadia Espinoza Figueroa</p>
-              <span class="equipo-card-role">Lenguaje / Matematica</span>
+              <span class="equipo-card-role">Lenguaje / Matemática</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Claudia Alarcon Contador</p>
-              <span class="equipo-card-role">Tecnologia / Cs. Naturales</span>
+              <span class="equipo-card-role">Tecnología / Cs. Naturales</span>
             </div>
           </div>
           <!-- Especialistas -->
@@ -3443,14 +3443,14 @@
             <div class="equipo-card-avatar"><i class="fa-solid fa-futbol"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Javier Cartes Binimelis</p>
-              <span class="equipo-card-role">Educacion Fisica</span>
+              <span class="equipo-card-role">Educación Fisica</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-music"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Mariel Sanchez Reyes</p>
-              <span class="equipo-card-role">Musica / Artes</span>
+              <span class="equipo-card-role">Música / Artes</span>
             </div>
           </div>
           <div class="equipo-card">
@@ -3561,14 +3561,14 @@
             <div class="equipo-card-avatar"><i class="fa-solid fa-child"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Pamela Castro Luengo</p>
-              <span class="equipo-card-role gold">Tecnico Parvulos</span>
+              <span class="equipo-card-role gold">Técnico Parvulos</span>
             </div>
           </div>
           <div class="equipo-card">
             <div class="equipo-card-avatar"><i class="fa-solid fa-child"></i></div>
             <div class="equipo-card-body">
               <p class="equipo-card-name">Daniela Salas Toledo</p>
-              <span class="equipo-card-role gold">Tecnico Parvulos</span>
+              <span class="equipo-card-role gold">Técnico Parvulos</span>
             </div>
           </div>
           <div class="equipo-card">
@@ -3612,67 +3612,67 @@
   </div>
 </section>
 </div><!-- /view-quienes-somos -->
-<div class="view" id="view-academico">
+<div class="view" id="view-académico">
 <!-- ?? INFO ESCOLAR ?? -->
 <!-- INFO ESCOLAR -->
 <section id="info-escolar">
   <div class="section-inner">
-    <div class="section-eyebrow">Academico</div>
-    <h2 class="section-title">Informacion Escolar</h2>
+    <div class="section-eyebrow">Académico</div>
+    <h2 class="section-title">Información Escolar</h2>
     <div class="section-line"></div>
-    <p class="section-sub">Todo lo relacionado con la vida academica de la Escuela Patrimonial California: niveles, programas, proyectos y comunicados.</p>
+    <p class="section-sub">Todo lo relacionado con la vida académica de la Escuela Patrimonial California: niveles, programas, proyectos y comunicados.</p>
     <div class="cards-grid">
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-child-reaching"></i></div>
-        <h3>Educacion Parvularia</h3>
-        <p>Atendemos los niveles de Educacion Parvularia en jornada escolar completa, entregando las bases del desarrollo integral desde los primeros años.</p>
+        <h3>Educación Parvularia</h3>
+        <p>Atendemos los niveles de Educación Parvularia en jornada escolar completa, entregando las bases del desarrollo integral desde los primeros años.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-book-open"></i></div>
         <h3>Enseñanza Basica 1 a 8</h3>
-        <p>Impartimos Enseñanza Basica completa de 1 a 8 basico en jornada escolar completa, con 10 cursos y un promedio de 9,4 alumnos por curso.</p>
+        <p>Impartimos Enseñanza Basica completa de 1 a 8 básico en jornada escolar completa, con 10 cursos y un promedio de 9,4 alumnos por curso.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-file-lines"></i></div>
         <h3>Circulares y Comunicados</h3>
-        <p>Mantente informado con los comunicados oficiales enviados a las familias a traves de Lirmi Familia y nuestros canales institucionales.</p>
+        <p>Mantente informado con los comunicados oficiales enviados a las familias a través de Lirmi Familia y nuestros canales institucionales.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-landmark"></i></div>
         <h3>Sello: Conciencia Patrimonial</h3>
-        <p>Promovemos el reconocimiento y valoracion de la identidad historica y cultural del sector California de Tome.</p>
+        <p>Promovemos el reconocimiento y valoracion de la identidad histórica y cultural del sector California de Tomé.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-handshake"></i></div>
         <h3>Sello: Sana Convivencia</h3>
-        <p>Fomentamos relaciones de respeto y un ambiente escolar positivo a traves del programa de Convivencia Escolar.</p>
+        <p>Fomentamos relaciones de respeto y un ambiente escolar positivo a través del programa de Convivencia Escolar.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-universal-access"></i></div>
         <h3>Programa de Integracion Escolar (PIE)</h3>
-        <p>El PIE apoya a los estudiantes que requieren atencion diferenciada, garantizando una educacion inclusiva y de calidad para todos.</p>
+        <p>El PIE apoya a los estudiantes que requieren atención diferenciada, garantizando una educación inclusiva y de calidad para todos.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-pen-to-square"></i></div>
         <h3>Matriculas</h3>
-        <p>Consulta el proceso de matricula y admision para el año escolar en secretaria o escribenos al correo institucional.</p>
+        <p>Consulta el proceso de matrícula y admision para el año escolar en secretaria o escribenos al correo institucional.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-calendar-days"></i></div>
         <h3>Calendario Escolar</h3>
-        <p>Revisa las fechas clave del año: inicio de semestres, periodos de evaluacion, vacaciones y actividades institucionales.</p>
+        <p>Revisa las fechas clave del año: inicio de semestres, periodos de evaluación, vacaciones y actividades institucionales.</p>
       </div>
       <div class="card">
         <div class="card-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
         <h3>Evaluaciones</h3>
-        <p>Conoce los periodos de evaluacion, las modalidades de calificacion y el reglamento vigente en nuestra escuela.</p>
+        <p>Conoce los periodos de evaluación, las modalidades de calificación y el reglamento vigente en nuestra escuela.</p>
       </div>
     </div>
 
     <details class="cal-accordion" style="margin-top:2.8rem;">
       <summary>
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        Matricula EPC 2026 - Actualizada al 09 de abril
+        Matrícula EPC 2026 - Actualizada al 09 de abril
         <svg class="ca-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
       <div class="cal-accordion-body table-wrap">
@@ -3688,15 +3688,15 @@
           <tbody>
             <tr><td>NT1</td><td style="text-align:center;">8</td><td style="text-align:center;">8</td><td style="text-align:center;">0</td></tr>
             <tr><td>NT2</td><td style="text-align:center;">3</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>
-            <tr><td>1 Basico</td><td style="text-align:center;">4</td><td style="text-align:center;">4</td><td style="text-align:center;">0</td></tr>
-            <tr><td>2 Basico</td><td style="text-align:center;">7</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
-            <tr><td>3 Basico</td><td style="text-align:center;">7</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
-            <tr><td>4 Basico</td><td style="text-align:center;">16</td><td style="text-align:center;">3</td><td style="text-align:center;">0</td></tr>
-            <tr><td>5 Basico</td><td style="text-align:center;">18</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
-            <tr><td>6 Basico</td><td style="text-align:center;">15</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
-            <tr><td>7 Basico</td><td style="text-align:center;">6</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>
-            <tr><td>8 Basico</td><td style="text-align:center;">10</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>
-            <tr class="matricula-total">
+            <tr><td>1 Básico</td><td style="text-align:center;">4</td><td style="text-align:center;">4</td><td style="text-align:center;">0</td></tr>
+            <tr><td>2 Básico</td><td style="text-align:center;">7</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
+            <tr><td>3 Básico</td><td style="text-align:center;">7</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
+            <tr><td>4 Básico</td><td style="text-align:center;">16</td><td style="text-align:center;">3</td><td style="text-align:center;">0</td></tr>
+            <tr><td>5 Básico</td><td style="text-align:center;">18</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td></tr>
+            <tr><td>6 Básico</td><td style="text-align:center;">15</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr>
+            <tr><td>7 Básico</td><td style="text-align:center;">6</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>
+            <tr><td>8 Básico</td><td style="text-align:center;">10</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>
+            <tr class="matrícula-total">
               <td>Total</td>
               <td style="text-align:center;">94</td>
               <td style="text-align:center;">20</td>
@@ -3704,7 +3704,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="matricula-genero">
+        <div class="matrícula-genero">
           <div class="mg-item">
             <span class="mg-label">Damas</span>
             <span class="mg-num">48</span>
@@ -3720,7 +3720,7 @@
 
   </div>
 </section>
-</div><!-- /view-academico -->
+</div><!-- /view-académico -->
 <div class="view" id="view-infraestructura">
 <section id="equipamiento">
   <div class="section-inner">
@@ -3809,7 +3809,7 @@
   <span id="recursos-pedagogicos" style="position:relative;top:-110px;"></span>
   <div class="section-inner">
     <div class="section-eyebrow">Estudiantes</div>
-    <h2 class="section-title">Informacion para Alumnos</h2>
+    <h2 class="section-title">Información para Alumnos</h2>
     <div class="section-line"></div>
     <div class="alumnos-grid">
       <div class="alumnos-left-col">
@@ -3835,7 +3835,7 @@
           <div class="norma-item"><div class="norma-num">1</div><p>Respeto mutuo entre todos los miembros de la comunidad escolar.</p></div>
           <div class="norma-item"><div class="norma-num">2</div><p>Puntualidad y responsabilidad en asistencia y deberes.</p></div>
           <div class="norma-item"><div class="norma-num">3</div><p>Cuidado de la infraestructura y recursos del establecimiento.</p></div>
-          <div class="norma-item"><div class="norma-num">4</div><p>Comunicacion respetuosa entre escuela, estudiantes y familias.</p></div>
+          <div class="norma-item"><div class="norma-num">4</div><p>Comunicación respetuosa entre escuela, estudiantes y familias.</p></div>
         </div>
       </div>
       <div>
@@ -3844,14 +3844,14 @@
             <div class="horario-select-wrap">
               <label for="curso-select"><i class="fa-solid fa-book-open"></i> Curso</label>
               <select id="curso-select" onchange="renderHorario()">
-                <option value="Primero">1 Basico</option>
-                <option value="Segundo">2 Basico</option>
-                <option value="Tercero">3 Basico</option>
-                <option value="Cuarto">4 Basico</option>
-                <option value="Quinto">5 Basico</option>
-                <option value="Sexto">6 Basico</option>
-                <option value="Séptimo">7 Basico</option>
-                <option value="Octavo">8 Basico</option>
+                <option value="Primero">1 Básico</option>
+                <option value="Segundo">2 Básico</option>
+                <option value="Tercero">3 Básico</option>
+                <option value="Cuarto">4 Básico</option>
+                <option value="Quinto">5 Básico</option>
+                <option value="Sexto">6 Básico</option>
+                <option value="Séptimo">7 Básico</option>
+                <option value="Octavo">8 Básico</option>
               </select>
             </div>
             <button class="horario-print-btn" onclick="printHorario()"><i class="fa-solid fa-print"></i> Imprimir</button>
@@ -3870,13 +3870,13 @@
         <table class="mural-table">
           <thead><tr><th>Mes</th><th>Curso responsable</th></tr></thead>
           <tbody>
-            <tr><td><span class="mural-chip">Abril</span></td><td>4 Basico</td></tr>
-            <tr><td><span class="mural-chip">Mayo</span></td><td>3 Basico</td></tr>
-            <tr><td><span class="mural-chip">Junio</span></td><td>2 Basico</td></tr>
-            <tr><td><span class="mural-chip">Agosto</span></td><td>1 Basico</td></tr>
-            <tr><td><span class="mural-chip">Septiembre</span></td><td>5 Basico</td></tr>
-            <tr><td><span class="mural-chip">Octubre</span></td><td>6 Basico</td></tr>
-            <tr><td><span class="mural-chip">Noviembre</span></td><td>7 Basico</td></tr>
+            <tr><td><span class="mural-chip">Abril</span></td><td>4 Básico</td></tr>
+            <tr><td><span class="mural-chip">Mayo</span></td><td>3 Básico</td></tr>
+            <tr><td><span class="mural-chip">Junio</span></td><td>2 Básico</td></tr>
+            <tr><td><span class="mural-chip">Agosto</span></td><td>1 Básico</td></tr>
+            <tr><td><span class="mural-chip">Septiembre</span></td><td>5 Básico</td></tr>
+            <tr><td><span class="mural-chip">Octubre</span></td><td>6 Básico</td></tr>
+            <tr><td><span class="mural-chip">Noviembre</span></td><td>7 Básico</td></tr>
           </tbody>
         </table>
       </div>
@@ -3884,7 +3884,7 @@
       <div class="mural-card">
         <div class="mural-head"><i class="fa-solid fa-newspaper"></i><h3>Diario Mural</h3></div>
         <div class="mural-card-body-pad">
-          <p class="mural-desc">El Diario Mural es un espacio de expresion y comunicacion de nuestra comunidad escolar. Se actualiza mensualmente en coordinacion con los actos institucionales de cada curso responsable.</p>
+          <p class="mural-desc">El Diario Mural es un espacio de expresión y comunicación de nuestra comunidad escolar. Se actualiza mensualmente en coordinacion con los actos institucionales de cada curso responsable.</p>
           <div class="mural-note"><i class="fa-solid fa-palette"></i><span>Diseño y contenido a cargo del curso responsable del acto mensual, fomentando creatividad y trabajo colaborativo.</span></div>
         </div>
       </div>
@@ -4003,12 +4003,12 @@
         <div style="background:#fff; border:1px solid var(--border); border-radius:20px; box-shadow:var(--shadow-sm); overflow:hidden;">
           <div style="display:flex; align-items:center; gap:.8rem; padding:1rem 1.4rem; background:linear-gradient(135deg,#17324a,#2b4a67); color:#fff;">
             <i class="fa-solid fa-bullhorn"></i>
-            <h3 style="margin:0; font-size:1rem;">Canal de Comunicacion</h3>
+            <h3 style="margin:0; font-size:1rem;">Canal de Comunicación</h3>
           </div>
           <div style="padding:1.4rem; display:grid; gap:1rem;">
             <p style="margin:0; font-size:.88rem; color:var(--gray); line-height:1.75;">Espacio para informar el medio oficial de contacto con el Centro General de Padres, Madres y Apoderados.</p>
             <div style="background:var(--verde-bg); border-left:4px solid var(--verde); border-radius:12px; padding:1rem 1.1rem;">
-              <p style="margin:0; color:#294232; font-size:.84rem; line-height:1.7;"><strong>Contacto pendiente de confirmar.</strong> Aqui se puede incorporar correo, telefono, horario de atencion o formulario oficial.</p>
+              <p style="margin:0; color:#294232; font-size:.84rem; line-height:1.7;"><strong>Contacto pendiente de confirmar.</strong> Aqui se puede incorporar correo, telefono, horario de atención o formulario oficial.</p>
             </div>
             <a href="mailto:valentinaceballosg@gmail.com" style="display:flex; align-items:center; gap:.55rem; color:#1f3b2b; font-weight:700;"><i class="fa-solid fa-arrow-right"></i> Contacto temporal por correo institucional</a>
           </div>
@@ -4043,7 +4043,7 @@
     </div>
 
     <!-- ATENCIÓN DE APODERADOS -->
-    <div id="atencion-apoderados" style="margin-top:3rem;">
+    <div id="atención-apoderados" style="margin-top:3rem;">
       <div style="display:flex; align-items:center; gap:.8rem; margin-bottom:1.6rem;">
         <div style="flex:1; height:1px; background:var(--border);"></div>
         <div style="display:flex; align-items:center; gap:.5rem; background:var(--verde); color:#fff; padding:.45rem 1.2rem; border-radius:50px; font-size:.82rem; font-weight:700; letter-spacing:.04em; white-space:nowrap;">
@@ -4052,7 +4052,7 @@
         <div style="flex:1; height:1px; background:var(--border);"></div>
       </div>
       <p style="font-size:.91rem; color:var(--gray); line-height:1.75; margin-bottom:1.6rem; max-width:720px;">
-        Horario semanal en que cada docente esta disponible para recibir a padres, madres y apoderados. Te recomendamos coordinar previamente con el profesor o la profesora.
+        Horario semanal en que cada docente está disponible para recibir a padres, madres y apoderados. Te recomendamos coordinar previamente con el profesor o la profesora.
       </p>
 
       <!-- Tabla de horarios -->
@@ -4072,38 +4072,38 @@
                 <th style="padding:.75rem 1rem; text-align:center; font-weight:700; color:var(--verde); border-bottom:2px solid var(--border); white-space:nowrap;">Sala / Lugar</th>
               </tr>
             </thead>
-            <tbody id="tabla-atencion-body">
+            <tbody id="tabla-atención-body">
               <tr style="background:#fff;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Carmen</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Basico</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Básico</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#f7fafc;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Andrea</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Basico</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Básico</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#fff;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Karen</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Basico</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Básico</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#f7fafc;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Paulina</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Basico</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Primer Ciclo Básico</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#fff;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Leonardo</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Matematica (5° a 8°)</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Matemática (5° a 8°)</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
@@ -4117,21 +4117,21 @@
               </tr>
               <tr style="background:#fff;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Claudia</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Tecnologia / Cs. Naturales</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Tecnología / Cs. Naturales</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#f7fafc;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Javier</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Educacion Fisica</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Educación Fisica</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
               </tr>
               <tr style="background:#fff;">
                 <td style="padding:.7rem 1.2rem; border-bottom:1px solid #eef2f5; font-weight:600; color:#1c2e40;">Mariel</td>
-                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Musica</td>
+                <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; color:var(--gray);">Música</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
                 <td style="padding:.7rem 1rem; border-bottom:1px solid #eef2f5; text-align:center; color:var(--gray);">—</td>
@@ -4163,7 +4163,7 @@
         <!-- Aviso Google Sheets -->
         <div style="padding:1rem 1.4rem; background:#f7fafc; border-top:1px solid var(--border); display:flex; align-items:center; gap:.6rem; font-size:.8rem; color:var(--gray);">
           <i class="fa-solid fa-circle-info" style="color:var(--verde-lite);"></i>
-          Los horarios se actualizan desde Google Sheets. Cuando esten disponibles se veran reflejados automaticamente.
+          Los horarios se actualizan desde Google Sheets. Cuando estén disponibles se veran reflejados automaticamente.
         </div>
       </div>
 
@@ -4189,7 +4189,7 @@
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <h2 class="lirmi-title"><span>Lirmi</span> Familia</h2>
-        <p class="lirmi-desc">Plataforma digital de comunicacion entre la escuela y las familias. Accede a notas, asistencia, circulares y mensajes en tiempo real, todo en un solo lugar.</p>
+        <p class="lirmi-desc">Plataforma digital de comunicación entre la escuela y las familias. Accede a notas, asistencia, circulares y mensajes en tiempo real, todo en un solo lugar.</p>
         <div class="lirmi-features">
           <div class="lirmi-feat"><div class="lirmi-feat-icon"><i class="fa-solid fa-chart-bar"></i></div><div class="lirmi-feat-text"><strong>Calificaciones</strong><span>Revisa notas y promedios al instante.</span></div></div>
           <div class="lirmi-feat"><div class="lirmi-feat-icon"><i class="fa-solid fa-circle-check"></i></div><div class="lirmi-feat-text"><strong>Asistencia</strong><span>Consulta la asistencia diaria de tu hijo/a.</span></div></div>
@@ -4198,7 +4198,7 @@
         </div>
         <div class="lirmi-bottom-bar">
           <i class="fa-solid fa-shield-halved"></i>
-          <span><strong>Con Lirmi Familia estas siempre conectado</strong> - Informacion segura, confiable y actualizada para acompañar el aprendizaje de tus hijos.</span>
+          <span><strong>Con Lirmi Familia estas siempre conectado</strong> - Información segura, confiable y actualizada para acompañar el aprendizaje de tus hijos.</span>
         </div>
       </div>
       <div class="lirmi-device">
@@ -4244,7 +4244,7 @@
       </div>
       <div class="pacma-tab-panel active" id="ptab-0"><p>Programa orientado a fortalecer los lazos entre estudiantes, docentes y familias, previniendo situaciones de conflicto y promoviendo ambientes de aprendizaje positivos y seguros.</p></div>
       <div class="pacma-tab-panel" id="ptab-1"><p>Dinamicas de grupo, mediacion entre pares, actividades de reflexion y talleres de habilidades sociales que se desarrollan a lo largo del año escolar.</p></div>
-      <div class="pacma-tab-panel" id="ptab-2"><p>Estudiantes, docentes y familias. Tambien se realizan talleres especiales para apoderados sobre acompañamiento emocional y comunicacion efectiva en el hogar.</p></div>
+      <div class="pacma-tab-panel" id="ptab-2"><p>Estudiantes, docentes y familias. También se realizan talleres especiales para apoderados sobre acompañamiento emocional y comunicación efectiva en el hogar.</p></div>
     </div>
     <div class="pacma-carousel-section">
       <div class="pacma-carousel-header">
@@ -4286,7 +4286,7 @@
     <div class="section-eyebrow">Actividades</div>
     <h2 class="section-title">Talleres Extraescolares</h2>
     <div class="section-line"></div>
-    <p class="section-sub">Nuestros talleres complementan la formacion academica, fomentando el arte, el deporte y distintas habilidades en un ambiente ludico y enriquecedor.</p>
+    <p class="section-sub">Nuestros talleres complementan la formacion académica, fomentando el arte, el deporte y distintas habilidades en un ambiente lúdico y enriquecedor.</p>
     <div class="talleres-grid">
       <div class="taller-card">
         <div class="taller-top tt-1">
@@ -4295,7 +4295,7 @@
         </div>
         <div class="taller-body">
           <div class="taller-meta"><span><i class="fa-regular fa-calendar-days"></i> Jueves</span><span><i class="fa-regular fa-clock"></i> 16:00 - 17:20 hrs</span></div>
-          <p>Tecnicas de pintura y expresion artistica para desarrollar la creatividad y la sensibilidad estetica de los estudiantes.</p>
+          <p>Técnicas de pintura y expresión artística para desarrollar la creatividad y la sensibilidad estética de los estudiantes.</p>
         </div>
       </div>
       <div class="taller-card">
@@ -4315,7 +4315,7 @@
         </div>
         <div class="taller-body">
           <div class="taller-meta"><span><i class="fa-regular fa-calendar-days"></i> Martes y Jueves</span><span><i class="fa-regular fa-clock"></i> 16:00 - 17:10 hrs</span></div>
-          <p>Programacion, construccion de robots y pensamiento computacional para explorar la tecnologia del futuro.</p>
+          <p>Programacion, construccion de robots y pensamiento computacional para explorar la tecnología del futuro.</p>
         </div>
       </div>
       <div class="taller-card">
@@ -4329,7 +4329,7 @@
             <div class="t-sched-row"><span class="t-sched-label"><i class="fa-solid fa-venus"></i> Damas</span><span class="t-sched-time"><i class="fa-regular fa-calendar-days"></i> Miercoles <i class="fa-regular fa-clock"></i> 16:00 - 17:20</span></div>
             <div class="t-sched-row"><span class="t-sched-label"><i class="fa-solid fa-venus-mars"></i> Mixto</span><span class="t-sched-time"><i class="fa-regular fa-calendar-days"></i> Jueves <i class="fa-regular fa-clock"></i> 16:00 - 17:20</span></div>
           </div>
-          <p>Tecnica, tactica y valores deportivos en distintas categorias para que todos los estudiantes puedan participar.</p>
+          <p>Técnica, tactica y valores deportivos en distintas categorias para que todos los estudiantes puedan participar.</p>
         </div>
       </div>
       <div class="taller-card">
@@ -4339,7 +4339,7 @@
         </div>
         <div class="taller-body">
           <div class="taller-meta"><span><i class="fa-regular fa-calendar-days"></i> Lunes y Miercoles</span><span><i class="fa-regular fa-clock"></i> 16:00 - 17:20 hrs</span></div>
-          <p>Aprendizaje de tecnicas de patinaje que desarrollan equilibrio, coordinacion y confianza personal.</p>
+          <p>Aprendizaje de técnicas de patinaje que desarrollan equilibrio, coordinacion y confianza personal.</p>
         </div>
       </div>
     </div>
@@ -4359,22 +4359,22 @@
   </div>
 </section>
 </div><!-- /view-actividades -->
-<div class="view" id="view-participacion">
+<div class="view" id="view-participación">
 <section id="sugerencias">
   <div class="section-inner">
-    <div class="section-eyebrow">Participacion</div>
+    <div class="section-eyebrow">Participación</div>
     <h2 class="section-title">Sugerencias</h2>
     <div class="section-line"></div>
     <div class="form-layout">
       <div class="form-info">
         <div class="info-card">
           <h3><i class="fa-solid fa-comment-dots" style="color:var(--verde);margin-right:.4rem;"></i>Tu opinion importa</h3>
-          <p>Todos los mensajes son revisados por la direccion del establecimiento. Puedes enviarnos sugerencias, consultas o reclamos de forma anonima o identificada.</p>
+          <p>Todos los mensajes son revisados por la dirección del establecimiento. Puedes enviarnos sugerencias, consultas o reclamos de forma anónima o identificada.</p>
         </div>
         <div class="card" style="border-top-color: var(--gold);">
           <div class="card-icon-wrap" style="background:#fff8e1;"><i class="fa-solid fa-envelope" style="color:var(--gold);"></i></div>
           <h3>Otras formas de contacto</h3>
-          <p>Tambien puedes comunicarte con nosotros directamente en secretaria o a traves del correo institucional.</p>
+          <p>También puedes comunicarte con nosotros directamente en secretaria o a través del correo institucional.</p>
           <p style="margin-top:.8rem; font-size:.83rem; color:var(--verde); font-weight:600;"><i class="fa-solid fa-envelope" style="margin-right:.35rem;"></i>valentinaceballosg@gmail.com</p>
         </div>
       </div>
@@ -4415,7 +4415,7 @@
     </div>
   </div>
 </section>
-</div><!-- /view-participacion -->
+</div><!-- /view-participación -->
 
 <!-- ══════════════════════════════════════════ -->
 <!-- VIEW: NUESTRA HISTORIA                     -->
@@ -5179,11 +5179,11 @@
   ];
 
   const COLORES = {
-    'Lenguaje':'#1565c0','Lenguaje CRA':'#0d47a1','Matematica':'#c62828',
+    'Lenguaje':'#1565c0','Lenguaje CRA':'#0d47a1','Matemática':'#c62828',
     'C.Naturales':'#2e7d32','Historia':'#bf5400','Ed. Fisica':'#00695c',
-    'Ingles':'#6a1b9a','A. Visuales':'#ad1457','Musica':'#283593',
+    'Ingles':'#6a1b9a','A. Visuales':'#ad1457','Música':'#283593',
     'Religion':'#e65100','T/O':'#4e342e','PACMA':'#1b5e20',
-    'Orientacion':'#006064','Tecnologia':'#37474f','Taller Ingles':'#4527a0',
+    'Orientacion':'#006064','Tecnología':'#37474f','Taller Ingles':'#4527a0',
     'Taller Yoga':'#880e4f','Sin clases':'#9e9e9e'
   };
 
@@ -5199,20 +5199,20 @@
 
   const DIAS_H      = ['Lunes','Martes','Miercoles','Jueves','Viernes'];
   const DIAS_LABEL  = ['Lun','Mar','Mie','Jue','Vie'];
-  const CURSOS_LABEL = {Primero:'1 Basico',Segundo:'2 Basico',Tercero:'3 Basico',Cuarto:'4 Basico',Quinto:'5 Basico',Sexto:'6 Basico','Séptimo':'7 Basico',Octavo:'8 Basico'};
+  const CURSOS_LABEL = {Primero:'1 Básico',Segundo:'2 Básico',Tercero:'3 Básico',Cuarto:'4 Básico',Quinto:'5 Básico',Sexto:'6 Básico','Séptimo':'7 Básico',Octavo:'8 Básico'};
 
   function normalizeText(value) {
     if (value == null) return value;
     return String(value)
       .replace(/Mi.+?rcoles/g, 'Miercoles')
-      .replace(/Matem.+?tica/g, 'Matematica')
+      .replace(/Matem.+?tica/g, 'Matemática')
       .replace(/Ed\. F.+?sica/g, 'Ed. Fisica')
       .replace(/Ingl.+?s/g, 'Ingles')
       .replace(/Religi.+?n/g, 'Religion')
       .replace(/Orientaci.+?n/g, 'Orientacion')
-      .replace(/Tecnolog.+?a/g, 'Tecnologia')
-      .replace(/M.+?sica/g, 'Musica')
-      .replace(/Comunicaci.+?n/g, 'Comunicacion')
+      .replace(/Tecnolog.+?a/g, 'Tecnología')
+      .replace(/M.+?sica/g, 'Música')
+      .replace(/Comunicaci.+?n/g, 'Comunicación')
       .replace(/acompa.+?amiento/gi, 'acompanamiento')
       .replace(/Jos.+/g, 'Jose')
       .replace(/Mar.+?a/g, 'Maria');
@@ -5375,11 +5375,11 @@
   });
 
   /* ── View Router ── */
-  const VIEWS = ['inicio','novedades','quienes-somos','academico','infraestructura','alumnos','familias','actividades','participacion'];
+  const VIEWS = ['inicio','novedades','quienes-somos','académico','infraestructura','alumnos','familias','actividades','participación'];
   const VIEW_LABELS = {
     'inicio':'Inicio','novedades':'Novedades','quienes-somos':'Quiénes Somos',
-    'academico':'Académico','infraestructura':'Infraestructura','alumnos':'Info. Alumnos',
-    'familias':'Familias','actividades':'Actividades','participacion':'Participación'
+    'académico':'Académico','infraestructura':'Infraestructura','alumnos':'Info. Alumnos',
+    'familias':'Familias','actividades':'Actividades','participación':'Participación'
   };
 
   function goTo(viewId, sectionId, hideIds) {
