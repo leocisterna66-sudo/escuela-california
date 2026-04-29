@@ -2537,6 +2537,8 @@
     width: 100%; height: 180px; object-fit: cover;
     background: var(--verde-bg); display: block;
   }
+  .apod-loading { color:#aaa; font-size:.85rem; padding:.6rem; display:flex; align-items:center; gap:.5rem; }
+
   .equipo-card-avatar {
     width: 100%; height: 180px;
     background: #f0f5f0;
@@ -3972,27 +3974,9 @@
           <h3 style="margin:0; font-size:1rem;">Directiva General de Padres, Madres y Apoderados</h3>
         </div>
         <div style="padding:1.4rem;">
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1rem;">
-            <div style="background:#f8fbf8; border:1px solid var(--border); border-radius:16px; padding:1rem; text-align:center;">
-              <div style="width:82px; height:82px; margin:0 auto .85rem; border-radius:50%; background:linear-gradient(180deg,#dfe7ee,#c8d3de); display:flex; align-items:center; justify-content:center; color:#5f7284; font-size:2rem;"><i class="fa-solid fa-user"></i></div>
-              <strong style="display:block; color:#17324a;">Presidencia</strong>
-              <span style="display:block; margin-top:.25rem; font-size:.8rem; color:var(--gray);">Espacio para fotografia y nombre</span>
-            </div>
-            <div style="background:#f8fbf8; border:1px solid var(--border); border-radius:16px; padding:1rem; text-align:center;">
-              <div style="width:82px; height:82px; margin:0 auto .85rem; border-radius:50%; background:linear-gradient(180deg,#dfe7ee,#c8d3de); display:flex; align-items:center; justify-content:center; color:#5f7284; font-size:2rem;"><i class="fa-solid fa-user"></i></div>
-              <strong style="display:block; color:#17324a;">Secretaria</strong>
-              <span style="display:block; margin-top:.25rem; font-size:.8rem; color:var(--gray);">Espacio para fotografia y nombre</span>
-            </div>
-            <div style="background:#f8fbf8; border:1px solid var(--border); border-radius:16px; padding:1rem; text-align:center;">
-              <div style="width:82px; height:82px; margin:0 auto .85rem; border-radius:50%; background:linear-gradient(180deg,#dfe7ee,#c8d3de); display:flex; align-items:center; justify-content:center; color:#5f7284; font-size:2rem;"><i class="fa-solid fa-user"></i></div>
-              <strong style="display:block; color:#17324a;">Tesoreria</strong>
-              <span style="display:block; margin-top:.25rem; font-size:.8rem; color:var(--gray);">Espacio para fotografia y nombre</span>
-            </div>
-            <div style="background:#f8fbf8; border:1px solid var(--border); border-radius:16px; padding:1rem; text-align:center;">
-              <div style="width:82px; height:82px; margin:0 auto .85rem; border-radius:50%; background:linear-gradient(180deg,#dfe7ee,#c8d3de); display:flex; align-items:center; justify-content:center; color:#5f7284; font-size:2rem;"><i class="fa-solid fa-user"></i></div>
-              <strong style="display:block; color:#17324a;">Delegado/a</strong>
-              <span style="display:block; margin-top:.25rem; font-size:.8rem; color:var(--gray);">Espacio para fotografia y nombre</span>
-            </div>
+          <div id="apod-directiva-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1rem;">
+            <!-- cargado desde Google Sheets -->
+            <div class="apod-dir-card apod-loading"><i class="fa-solid fa-spinner fa-spin"></i></div>
           </div>
         </div>
       </div>
@@ -4003,10 +3987,8 @@
             <h3 style="margin:0; font-size:1rem;">Reuniones del Centro General de Padres</h3>
           </div>
           <div style="padding:1.4rem;">
-            <div style="display:grid; gap:.85rem;">
-              <div style="border:1px dashed #bfd0dd; border-radius:14px; padding:1rem; color:#607180; background:#fafcfd;">Espacio disponible para fecha de reunion 1</div>
-              <div style="border:1px dashed #bfd0dd; border-radius:14px; padding:1rem; color:#607180; background:#fafcfd;">Espacio disponible para fecha de reunion 2</div>
-              <div style="border:1px dashed #bfd0dd; border-radius:14px; padding:1rem; color:#607180; background:#fafcfd;">Espacio disponible para fecha de reunion 3</div>
+            <div id="apod-reuniones-list" style="display:grid; gap:.85rem;">
+              <div class="apod-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando reuniones…</div>
             </div>
           </div>
         </div>
@@ -4015,12 +3997,8 @@
             <i class="fa-solid fa-bullhorn"></i>
             <h3 style="margin:0; font-size:1rem;">Canal de Comunicación</h3>
           </div>
-          <div style="padding:1.4rem; display:grid; gap:1rem;">
-            <p style="margin:0; font-size:.88rem; color:var(--gray); line-height:1.75;">Espacio para informar el medio oficial de contacto con el Centro General de Padres, Madres y Apoderados.</p>
-            <div style="background:var(--verde-bg); border-left:4px solid var(--verde); border-radius:12px; padding:1rem 1.1rem;">
-              <p style="margin:0; color:#294232; font-size:.84rem; line-height:1.7;"><strong>Contacto pendiente de confirmar.</strong> Aqui se puede incorporar correo, telefono, horario de atención o formulario oficial.</p>
-            </div>
-            <a href="mailto:valentinaceballosg@gmail.com" style="display:flex; align-items:center; gap:.55rem; color:#1f3b2b; font-weight:700;"><i class="fa-solid fa-arrow-right"></i> Contacto temporal por correo institucional</a>
+          <div id="apod-canal-content" style="padding:1.4rem; display:grid; gap:1rem;">
+            <div class="apod-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando canales…</div>
           </div>
         </div>
       </div>
@@ -4031,11 +4009,9 @@
             <h3 style="margin:0; font-size:1rem;">Actividades y Beneficios</h3>
           </div>
           <div style="padding:1.4rem;">
-            <ul style="margin:0; padding-left:1.1rem; color:var(--gray); line-height:1.9; font-size:.86rem;">
-              <li>Espacio para informar actividades del centro general.</li>
-              <li>Espacio para registrar beneficios o apoyos a las familias.</li>
-              <li>Espacio para campañas, rifas, convivencias o apoyos solidarios.</li>
-            </ul>
+            <div id="apod-beneficios-list" style="display:grid; gap:.85rem;">
+              <div class="apod-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando actividades…</div>
+            </div>
           </div>
         </div>
         <div style="background:#fff; border:1px solid var(--border); border-radius:20px; box-shadow:var(--shadow-sm); overflow:hidden;">
@@ -4043,10 +4019,10 @@
             <i class="fa-solid fa-file-signature"></i>
             <h3 style="margin:0; font-size:1rem;">Acuerdos / Actas</h3>
           </div>
-          <div style="padding:1.4rem; display:grid; gap:.8rem;">
-            <div style="border:1px dashed #bfd7c1; border-radius:14px; padding:1rem; color:#52705a; background:#fbfefb;">Espacio para subir o registrar acta 1</div>
-            <div style="border:1px dashed #bfd7c1; border-radius:14px; padding:1rem; color:#52705a; background:#fbfefb;">Espacio para subir o registrar acta 2</div>
-            <div style="border:1px dashed #bfd7c1; border-radius:14px; padding:1rem; color:#52705a; background:#fbfefb;">Espacio para acuerdos relevantes del periodo</div>
+          <div style="padding:1.4rem;">
+            <div id="apod-actas-list" style="display:grid; gap:.8rem;">
+              <div class="apod-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando actas…</div>
+            </div>
           </div>
         </div>
       </div>
@@ -5302,6 +5278,176 @@
 
   // Inicializar horario al cargar
   document.addEventListener('DOMContentLoaded', renderHorario);
+
+  /* ══════════════════════════════════════
+     APODERADOS — Google Sheets
+     ══════════════════════════════════════ */
+
+  // IDs de los 5 Google Sheets (uno por sección)
+  const APOD_SHEETS = {
+    directiva  : 'https://docs.google.com/spreadsheets/d/1WK0Kqn1OZm6dFQNpxGLF5fGfd-vdN1yVE3oTlNpUMIw/gviz/tq?tqx=out:csv',
+    reuniones  : 'https://docs.google.com/spreadsheets/d/19GMvzlErHFWzVRibtj8hkJV9rJJMa023tGTCAsjiCSs/gviz/tq?tqx=out:csv',
+    canal      : 'https://docs.google.com/spreadsheets/d/1qAJSHWEv1u9028faf3YwRAs6vdTx-we_ofk8onTewDo/gviz/tq?tqx=out:csv',
+    beneficios : 'https://docs.google.com/spreadsheets/d/1BmL5lYQwTwY-uD4S2iCcyqea6b6juWdbVNm9l1eetEU/gviz/tq?tqx=out:csv',
+    actas      : 'https://docs.google.com/spreadsheets/d/1AZOyRUI7p7xB4EIMhjXldriV1Ba2_sDRl980wU44abI/gviz/tq?tqx=out:csv'
+  };
+
+  // Colores para avatares de la directiva
+  const APOD_COLORS = { 'Presidencia':'#1565a8','Secretaria':'#c62828','Tesorería':'#2e7d32','Delegado/a':'#6a1b9a' };
+
+  function buildDirectiva(rows) {
+    const grid = document.getElementById('apod-directiva-grid');
+    if (!grid) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('cargo'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    grid.innerHTML = '';
+    data.forEach(function(cols) {
+      const cargo  = (cols[0]||'').trim();
+      const nombre = (cols[1]||'').trim();
+      const foto   = (cols[2]||'').trim();
+      if (!cargo) return;
+      const color = APOD_COLORS[cargo] || '#455a64';
+      const initials = nombre ? nombre.split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase() : '?';
+      const avatarHtml = foto
+        ? '<img src="' + driveToImg(foto) + '" style="width:82px;height:82px;border-radius:50%;object-fit:cover;border:3px solid '+color+';" onerror="this.style.display=\'none\'">'
+        : '<div style="width:82px;height:82px;border-radius:50%;background:'+color+';display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:#fff;">' + initials + '</div>';
+      const nombreHtml = nombre
+        ? '<p style="margin:.4rem 0 .1rem;font-size:.88rem;font-weight:700;color:#17324a;">' + nombre + '</p>'
+        : '<p style="margin:.4rem 0 .1rem;font-size:.8rem;color:#aaa;font-style:italic;">Pendiente</p>';
+      grid.innerHTML += '<div style="background:#f8fbf8;border:1px solid var(--border);border-radius:16px;padding:1.1rem 1rem;text-align:center;">'
+        + '<div style="display:flex;justify-content:center;margin-bottom:.7rem;">' + avatarHtml + '</div>'
+        + '<strong style="display:block;color:'+color+';font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;">' + cargo + '</strong>'
+        + nombreHtml + '</div>';
+    });
+    if (!grid.children.length) grid.innerHTML = '<p style="color:#aaa;font-style:italic;padding:.5rem;">Sin datos aún</p>';
+  }
+
+  function buildReuniones(rows) {
+    const list = document.getElementById('apod-reuniones-list');
+    if (!list) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].match(/n[°ú]/i));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const activas = data.filter(r => r[1] && r[1].trim() && !r[1].toLowerCase().includes('ej:'));
+    if (!activas.length) { list.innerHTML = '<p style="color:#aaa;font-style:italic;padding:.5rem 0;">Próximamente se informarán las fechas de reuniones.</p>'; return; }
+    list.innerHTML = '';
+    activas.forEach(function(cols) {
+      const num   = (cols[0]||'').trim();
+      const fecha = (cols[1]||'').trim();
+      const hora  = (cols[2]||'').trim();
+      const lugar = (cols[3]||'').trim();
+      const desc  = (cols[4]||'').trim();
+      const estado= (cols[5]||'Pendiente').trim();
+      const badgeColor = estado.toLowerCase().includes('realiz') ? '#2e7d32' : estado.toLowerCase().includes('cancel') ? '#c62828' : '#1565a8';
+      list.innerHTML += '<div style="border:1px solid #bfd0dd;border-radius:14px;padding:1rem 1.2rem;background:#fafcfd;display:flex;gap:1rem;align-items:flex-start;">'
+        + '<div style="background:#1565a8;color:#fff;border-radius:10px;padding:.4rem .75rem;font-size:.78rem;font-weight:800;white-space:nowrap;flex-shrink:0;">N° '+num+'</div>'
+        + '<div style="flex:1;">'
+        + '<div style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.3rem;">'
+        + (fecha ? '<span style="font-weight:700;color:#17324a;">📅 '+fecha+'</span>' : '')
+        + (hora  ? '<span style="color:#607180;font-size:.85rem;">🕕 '+hora+'</span>' : '')
+        + '<span style="font-size:.75rem;font-weight:700;color:#fff;background:'+badgeColor+';padding:.15rem .55rem;border-radius:20px;">'+estado+'</span>'
+        + '</div>'
+        + (lugar ? '<div style="font-size:.83rem;color:#607180;margin-bottom:.2rem;">📍 '+lugar+'</div>' : '')
+        + (desc  ? '<div style="font-size:.84rem;color:#333;">'+desc+'</div>' : '')
+        + '</div></div>';
+    });
+  }
+
+  function buildCanal(rows) {
+    const cont = document.getElementById('apod-canal-content');
+    if (!cont) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('tipo'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const activos = data.filter(r => r[1] && r[1].trim() && !r[1].toLowerCase().includes('ej:'));
+    if (!activos.length) {
+      cont.innerHTML = '<p style="margin:0;font-size:.88rem;color:var(--gray);line-height:1.75;">Canal de comunicación pendiente de confirmar.</p>'
+        + '<a href="mailto:valentinaceballosg@gmail.com" style="display:flex;align-items:center;gap:.55rem;color:#1f3b2b;font-weight:700;"><i class="fa-solid fa-arrow-right"></i> Contacto temporal por correo institucional</a>';
+      return;
+    }
+    const icons = { 'whatsapp':'fa-whatsapp','correo':'fa-envelope','facebook':'fa-facebook','reunión':'fa-calendar-check','telefono':'fa-phone' };
+    cont.innerHTML = '';
+    activos.forEach(function(cols) {
+      const tipo  = (cols[0]||'').trim();
+      const dato  = (cols[1]||'').trim();
+      const desc  = (cols[2]||'').trim();
+      const icon  = icons[tipo.toLowerCase()] || 'fa-circle-info';
+      const brand = tipo.toLowerCase().includes('whatsapp') || tipo.toLowerCase().includes('facebook') ? 'fa-brands' : 'fa-solid';
+      cont.innerHTML += '<div style="background:var(--verde-bg);border-left:4px solid var(--verde);border-radius:12px;padding:.9rem 1.1rem;display:flex;gap:.9rem;align-items:center;">'
+        + '<div style="background:var(--verde);color:#fff;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">'
+        + '<i class="'+brand+' '+icon+'"></i></div>'
+        + '<div><strong style="display:block;color:#1f3b2b;font-size:.88rem;">'+tipo+'</strong>'
+        + '<span style="font-size:.83rem;color:#294232;">'+(dato||desc)+'</span></div></div>';
+    });
+  }
+
+  function buildBeneficios(rows) {
+    const list = document.getElementById('apod-beneficios-list');
+    if (!list) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('actividad'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const items = data.filter(r => r[0] && r[0].trim() && !r[0].toLowerCase().includes('ej:'));
+    if (!items.length) { list.innerHTML = '<p style="color:#aaa;font-style:italic;padding:.5rem 0;">Próximamente se informarán las actividades y beneficios.</p>'; return; }
+    list.innerHTML = '';
+    items.forEach(function(cols) {
+      const act   = (cols[0]||'').trim();
+      const desc  = (cols[1]||'').trim();
+      const fecha = (cols[2]||'').trim();
+      const estado= (cols[3]||'').trim();
+      const link  = (cols[4]||'').trim();
+      const badgeC= estado.toLowerCase().includes('realiz') ? '#2e7d32' : '#e65100';
+      list.innerHTML += '<div style="border:1px solid #efe1bd;border-radius:14px;padding:1rem 1.2rem;background:#fffaf1;">'
+        + '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;flex-wrap:wrap;">'
+        + '<strong style="color:#6a4b16;">'+act+'</strong>'
+        + (estado ? '<span style="font-size:.74rem;font-weight:700;color:#fff;background:'+badgeC+';padding:.15rem .55rem;border-radius:20px;">'+estado+'</span>' : '')
+        + '</div>'
+        + (desc  ? '<p style="margin:.3rem 0 .2rem;font-size:.84rem;color:#5a4020;">'+desc+'</p>' : '')
+        + (fecha ? '<span style="font-size:.78rem;color:#9a7040;">📅 '+fecha+'</span>' : '')
+        + (link  ? ' <a href="'+link+'" target="_blank" style="font-size:.78rem;color:var(--verde);margin-left:.5rem;">Ver más →</a>' : '')
+        + '</div>';
+    });
+  }
+
+  function buildActas(rows) {
+    const list = document.getElementById('apod-actas-list');
+    if (!list) return;
+    const hIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('t') && r[0].toLowerCase().includes('tulo'));
+    const data = hIdx >= 0 ? rows.slice(hIdx+1) : rows.slice(1);
+    const items = data.filter(r => r[0] && r[0].trim() && !r[0].toLowerCase().includes('ej:'));
+    if (!items.length) { list.innerHTML = '<p style="color:#aaa;font-style:italic;padding:.5rem 0;">Las actas se irán publicando después de cada reunión.</p>'; return; }
+    list.innerHTML = '';
+    items.forEach(function(cols) {
+      const titulo = (cols[0]||'').trim();
+      const fecha  = (cols[1]||'').trim();
+      const url    = (cols[2]||'').trim();
+      const desc   = (cols[3]||'').trim();
+      list.innerHTML += '<div style="border:1px solid #d8ead9;border-radius:14px;padding:1rem 1.2rem;background:#fbfefb;display:flex;gap:1rem;align-items:center;">'
+        + '<div style="background:#2e7d32;color:#fff;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">'
+        + '<i class="fa-solid fa-file-signature"></i></div>'
+        + '<div style="flex:1;">'
+        + '<strong style="display:block;color:#21422b;font-size:.88rem;">'+titulo+'</strong>'
+        + (fecha ? '<span style="font-size:.78rem;color:#52705a;">📅 '+fecha+'</span>' : '')
+        + (desc  ? '<p style="margin:.2rem 0 0;font-size:.82rem;color:#52705a;">'+desc+'</p>' : '')
+        + '</div>'
+        + (url ? '<a href="'+url+'" target="_blank" rel="noopener" style="flex-shrink:0;background:#2e7d32;color:#fff;padding:.4rem .9rem;border-radius:10px;font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;">Ver acta</a>' : '')
+        + '</div>';
+    });
+  }
+
+  function loadApoderadosSheets() {
+    const entries = Object.entries(APOD_SHEETS);
+    const builders = { directiva: buildDirectiva, reuniones: buildReuniones, canal: buildCanal, beneficios: buildBeneficios, actas: buildActas };
+    entries.forEach(function([key, url]) {
+      fetch(url)
+        .then(function(r) { return r.ok ? r.text() : Promise.reject(r.status); })
+        .then(function(csv) { builders[key](parseCSV(csv)); })
+        .catch(function() {
+          const id = 'apod-' + (key === 'directiva' ? 'directiva-grid' : key === 'canal' ? 'canal-content' : key + '-list');
+          const el = document.getElementById(id);
+          if (el) el.innerHTML = '<p style="color:#aaa;font-style:italic;font-size:.85rem;padding:.5rem 0;">Sin datos disponibles aún.</p>';
+        });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', loadApoderadosSheets);
 
   /* ══════════════════════════════════════
      COMUNIDAD EDUCATIVA — Avatares e iniciales
