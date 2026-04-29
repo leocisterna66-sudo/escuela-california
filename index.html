@@ -2539,9 +2539,19 @@
   }
   .equipo-card-avatar {
     width: 100%; height: 180px;
-    background: linear-gradient(135deg, var(--verde-bg) 0%, var(--verde-lite) 100%);
+    background: #f0f5f0;
     display: flex; align-items: center; justify-content: center;
-    color: var(--verde); font-size: 3rem;
+  }
+  .equipo-avatar-initials {
+    width: 90px; height: 90px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.9rem; font-weight: 900; color: #fff;
+    letter-spacing: .02em;
+    box-shadow: 0 4px 20px rgba(0,0,0,.18);
+    flex-shrink: 0;
+  }
+  .equipo-card-photo-img {
+    width: 100%; height: 180px; object-fit: cover; display: block;
   }
   .equipo-card-body { padding: 1rem 1rem 1.2rem; text-align: center; }
   .equipo-card-name {
@@ -5292,6 +5302,92 @@
 
   // Inicializar horario al cargar
   document.addEventListener('DOMContentLoaded', renderHorario);
+
+  /* ══════════════════════════════════════
+     COMUNIDAD EDUCATIVA — Avatares e iniciales
+     ══════════════════════════════════════ */
+
+  // URL del Google Sheet publicado como CSV
+  // Cuando lo tengas, pega aquí la URL del Sheet publicado
+  const EQUIPO_CSV_URL = '';
+
+  // Paleta de colores para los avatares (se asigna por nombre, siempre consistente)
+  const AVATAR_COLORS = [
+    '#1565a8','#c62828','#2e7d32','#e65100','#6a1b9a',
+    '#00838f','#ad1457','#283593','#558b2f','#4e342e',
+    '#0277bd','#6d4c41','#37474f'
+  ];
+
+  function getAvatarColor(name) {
+    let code = 0;
+    for (let i = 0; i < Math.min(name.length, 4); i++) code += name.charCodeAt(i);
+    return AVATAR_COLORS[code % AVATAR_COLORS.length];
+  }
+
+  function getInitials(name) {
+    const parts = name.trim().split(' ').filter(Boolean);
+    return ((parts[0]?.[0] || '') + (parts[1]?.[0] || '')).toUpperCase();
+  }
+
+  // Convierte todos los avatares-icono en círculos con iniciales
+  function initEquipoAvatars() {
+    document.querySelectorAll('.equipo-card-avatar').forEach(function(av) {
+      if (av.querySelector('img') || av.querySelector('.equipo-avatar-initials')) return;
+      const card = av.closest('.equipo-card');
+      if (!card) return;
+      const nameEl = card.querySelector('.equipo-card-name');
+      if (!nameEl) return;
+      const name = nameEl.textContent.trim();
+      const circle = document.createElement('div');
+      circle.className = 'equipo-avatar-initials';
+      circle.style.background = getAvatarColor(name);
+      circle.textContent = getInitials(name);
+      av.innerHTML = '';
+      av.appendChild(circle);
+    });
+  }
+
+  // Reemplaza un avatar con foto desde URL de Drive
+  function setEquipoPhoto(card, photoUrl) {
+    const av = card.querySelector('.equipo-card-avatar');
+    if (!av || !photoUrl) return;
+    av.innerHTML = '';
+    av.style.padding = '0';
+    const img = document.createElement('img');
+    img.className = 'equipo-card-photo-img';
+    img.src = photoUrl;
+    img.alt = card.querySelector('.equipo-card-name')?.textContent || '';
+    img.onerror = function() {
+      av.innerHTML = '';
+      initEquipoAvatars();
+    };
+    av.appendChild(img);
+  }
+
+  // Carga fotos desde Google Sheets CSV cuando la URL esté configurada
+  function loadEquipoFromSheets() {
+    if (!EQUIPO_CSV_URL) { initEquipoAvatars(); return; }
+    fetch(EQUIPO_CSV_URL)
+      .then(r => r.text())
+      .then(csv => {
+        const rows = csv.split('\n').slice(1).map(r => r.split(',').map(c => c.replace(/^"|"$/g,'').trim()));
+        rows.forEach(function([nombre, cargo, pestana, foto]) {
+          if (!nombre) return;
+          document.querySelectorAll('.equipo-card-name').forEach(function(el) {
+            if (el.textContent.trim().toLowerCase() === nombre.toLowerCase() && foto) {
+              setEquipoPhoto(el.closest('.equipo-card'), foto);
+            }
+          });
+        });
+        initEquipoAvatars(); // avatares para los que no tienen foto
+      })
+      .catch(() => initEquipoAvatars());
+  }
+
+  // Iniciar al cargar
+  document.addEventListener('DOMContentLoaded', loadEquipoFromSheets);
+  // También al navegar a la sección
+  const _origShowView = window.showView;
 
   // ?? Lightbox Uniforme ??
   function openUnifLightbox(src, label) {
