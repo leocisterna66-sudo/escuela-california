@@ -5307,9 +5307,9 @@
      COMUNIDAD EDUCATIVA — Avatares e iniciales
      ══════════════════════════════════════ */
 
-  // URL del Google Sheet publicado como CSV
-  // Cuando lo tengas, pega aquí la URL del Sheet publicado
-  const EQUIPO_CSV_URL = '';
+  // Google Sheet — Comunidad Educativa
+  // ID: 1MjygPJITV2KydgeezNsNeIOVtGYAzd5Ld3Idw3Q_TTA
+  const EQUIPO_CSV_URL = 'https://docs.google.com/spreadsheets/d/1MjygPJITV2KydgeezNsNeIOVtGYAzd5Ld3Idw3Q_TTA/gviz/tq?tqx=out:csv';
 
   // Paleta de colores para los avatares (se asigna por nombre, siempre consistente)
   const AVATAR_COLORS = [
@@ -5364,22 +5364,57 @@
     av.appendChild(img);
   }
 
+  // Parser CSV robusto (maneja campos con comas dentro de comillas)
+  function parseCSV(text) {
+    const rows = [];
+    const lines = text.split(/\r?\n/);
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') { inQ = !inQ; }
+        else if (ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += ch; }
+      }
+      cols.push(cur.trim());
+      rows.push(cols);
+    }
+    return rows;
+  }
+
   // Carga fotos desde Google Sheets CSV cuando la URL esté configurada
   function loadEquipoFromSheets() {
     if (!EQUIPO_CSV_URL) { initEquipoAvatars(); return; }
     fetch(EQUIPO_CSV_URL)
-      .then(r => r.text())
+      .then(r => { if (!r.ok) throw new Error('fetch'); return r.text(); })
       .then(csv => {
-        const rows = csv.split('\n').slice(1).map(r => r.split(',').map(c => c.replace(/^"|"$/g,'').trim()));
-        rows.forEach(function([nombre, cargo, pestana, foto]) {
-          if (!nombre) return;
+        const rows = parseCSV(csv);
+        // Buscar fila de encabezados (contiene "Nombre")
+        const headerIdx = rows.findIndex(r => r[0] && r[0].toLowerCase().includes('nombre'));
+        const dataRows = headerIdx >= 0 ? rows.slice(headerIdx + 1) : rows.slice(2);
+
+        dataRows.forEach(function(cols) {
+          const nombre = (cols[0] || '').trim();
+          const foto   = (cols[3] || '').trim();
+          // Saltar filas vacías o separadoras
+          if (!nombre || nombre.startsWith('─') || nombre.startsWith('INSTRUC')) return;
+          if (!foto) return;
+          // Convertir URL de Drive a URL directa de imagen
+          let fotoUrl = foto;
+          const driveMatch = foto.match(/\/d\/([a-zA-Z0-9_-]+)/);
+          if (driveMatch) {
+            fotoUrl = 'https://drive.google.com/uc?export=view&id=' + driveMatch[1];
+          }
+          // Buscar la tarjeta por nombre y asignar foto
           document.querySelectorAll('.equipo-card-name').forEach(function(el) {
-            if (el.textContent.trim().toLowerCase() === nombre.toLowerCase() && foto) {
-              setEquipoPhoto(el.closest('.equipo-card'), foto);
+            if (el.textContent.trim().toLowerCase() === nombre.toLowerCase()) {
+              setEquipoPhoto(el.closest('.equipo-card'), fotoUrl);
             }
           });
         });
-        initEquipoAvatars(); // avatares para los que no tienen foto
+        initEquipoAvatars(); // avatares de iniciales para quienes no tienen foto
       })
       .catch(() => initEquipoAvatars());
   }
