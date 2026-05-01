@@ -5748,13 +5748,22 @@
     if (!av || !photoUrl) return;
     av.innerHTML = '';
     av.style.padding = '0';
+    av.style.background = '#f0f5f0';
     const img = document.createElement('img');
     img.className = 'equipo-card-photo-img';
     img.src = photoUrl;
     img.alt = card.querySelector('.equipo-card-name')?.textContent || '';
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
     img.onerror = function() {
+      // Si falla la foto, mostrar iniciales para esta tarjeta específica
       av.innerHTML = '';
-      initEquipoAvatars();
+      const nameEl = card.querySelector('.equipo-card-name');
+      const name = nameEl ? nameEl.textContent.trim() : '';
+      const circle = document.createElement('div');
+      circle.className = 'equipo-avatar-initials';
+      circle.style.background = getAvatarColor(name);
+      circle.textContent = getInitials(name);
+      av.appendChild(circle);
     };
     av.appendChild(img);
   }
@@ -5782,8 +5791,17 @@
   // Convierte URL de Google Drive a URL directa de imagen
   function driveToImg(url) {
     if (!url) return '';
-    const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-    return m ? 'https://drive.google.com/uc?export=view&id=' + m[1] : url;
+    // Soporta formatos: /file/d/ID/view, /d/ID, open?id=ID, id=ID
+    const m = url.match(/\/d\/([a-zA-Z0-9_-]{20,})/);
+    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w400';
+    const m2 = url.match(/[?&]id=([a-zA-Z0-9_-]{20,})/);
+    if (m2) return 'https://drive.google.com/thumbnail?id=' + m2[1] + '&sz=w400';
+    return url;
+  }
+
+  // Normaliza texto para comparación (quita tildes, espacios extra, minúsculas)
+  function normName(s) {
+    return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ').trim();
   }
 
   // Reconstruye una grilla de tarjetas desde los datos del Sheet
