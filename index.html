@@ -5094,7 +5094,11 @@
       .then(r => r.text())
       .then(text => {
         const rows = parseCSV(text).slice(1).filter(r => r[0] && r[0].trim() !== '' && r[0].length < 30 && r[1] && r[1].trim() !== '');
-        if (rows.length && calGrid) calGrid.innerHTML = buildCalGrid(rows);
+        if (rows.length && calGrid) {
+          const sheetMonths = new Set(rows.map(r => (r[0]||'').trim()));
+          const staticToKeep = calDataStatic.filter(r => !sheetMonths.has(r[0]));
+          calGrid.innerHTML = buildCalGrid([...staticToKeep, ...rows]);
+        }
       })
       .catch(() => { /* mantiene los datos estáticos si falla */ });
   }
