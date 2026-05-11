@@ -5021,7 +5021,7 @@
      2. Archivo → Compartir → Publicar en la web → hoja "Calendario" → Publicar
      3. Copia la URL publicada y reemplaza CALENDARIO_CSV_URL abajo
   */
-  const CALENDARIO_CSV_URL = 'https://docs.google.com/spreadsheets/d/1X9GMPe_neN79PQemHA6yuIqFuJdmEIh3_qiaKo3nqDU/gviz/tq?tqx=out:csv&sheet=Calendario';
+  const CALENDARIO_CSV_URL = 'https://docs.google.com/spreadsheets/d/1X9GMPe_neN79PQemHA6yuIqFuJdmEIh3_qiaKo3nqDU/export?format=csv&sheet=Calendario';
 
   const MESES_ICON = {
     'Marzo':'fa-seedling','Abril':'fa-cloud-sun','Mayo':'fa-sun','Junio':'fa-umbrella',
@@ -5093,12 +5093,8 @@
     fetch(CALENDARIO_CSV_URL + '&t=' + Date.now())
       .then(r => r.text())
       .then(text => {
-        const rows = parseCSV(text).slice(1).filter(r => r[0] && r[0].trim() !== '' && r[0].length < 30 && r[1] && r[1].trim() !== '');
-        if (rows.length && calGrid) {
-          const sheetMonths = new Set(rows.map(r => (r[0]||'').trim()));
-          const staticToKeep = calDataStatic.filter(r => !sheetMonths.has(r[0]));
-          calGrid.innerHTML = buildCalGrid([...staticToKeep, ...rows]);
-        }
+        const rows = parseCSV(text).slice(2).filter(r => r[0] && r[0].trim() !== '' && r[0].length < 20 && r[1] && r[1].trim() !== '');
+        if (rows.length && calGrid) calGrid.innerHTML = buildCalGrid(rows);
       })
       .catch(() => { /* mantiene los datos estáticos si falla */ });
   }
