@@ -2714,6 +2714,46 @@
 #view-historia::before { background-image: url('fondo-4.png'); opacity: .14; }
 #view-historia > section { background: transparent !important; }
 
+/* Video documental */
+.tl-video-wrap {
+  max-width: 860px; margin: 0 auto 2.5rem; padding: 0 1.5rem;
+  position: relative; z-index: 2;
+}
+.tl-video-label {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(255,255,255,.18); border: 1.5px solid rgba(255,255,255,.35);
+  color: #fff; padding: .35rem 1rem; border-radius: 30px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .06em;
+  margin-bottom: .8rem; backdrop-filter: blur(4px);
+}
+.tl-video-frame {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0,0,0,.45);
+  border: 3px solid rgba(255,255,255,.2);
+}
+.tl-video-frame iframe {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; border: none;
+}
+
+/* Botón toggle timeline */
+.tl-toggle-wrap {
+  text-align: center; margin: 0 auto 1.5rem;
+  position: relative; z-index: 2;
+}
+.tl-toggle-btn {
+  display: inline-flex; align-items: center; gap: .7rem;
+  background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.35);
+  color: #fff; padding: .75rem 2rem; border-radius: 50px;
+  font-size: .9rem; font-weight: 700; cursor: pointer;
+  backdrop-filter: blur(4px); letter-spacing: .03em;
+  transition: background .2s, transform .2s;
+}
+.tl-toggle-btn:hover { background: rgba(255,255,255,.28); transform: translateY(-2px); }
+.tl-toggle-arr { font-size: .75rem; transition: transform .35s; }
+.tl-toggle-btn.open .tl-toggle-arr { transform: rotate(180deg); }
+
 /* Banner hero historia */
 .tl-hero {
   text-align: center; padding: 4rem 1.5rem 3rem; color: #fff;
@@ -4562,8 +4602,29 @@
     </div>
   </div>
 
-  <!-- Línea de tiempo -->
-  <div class="timeline" id="timeline">
+  <!-- Video documental -->
+  <div class="tl-video-wrap">
+    <div class="tl-video-label"><i class="fa-solid fa-film"></i> Documental — Historia del Barrio California</div>
+    <div class="tl-video-frame">
+      <iframe
+        src="https://drive.google.com/file/d/11UqbMCDjeFlHyfSSBqLedjLSSrPXRKUo/preview"
+        allow="autoplay"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Línea de tiempo colapsable -->
+  <div class="tl-toggle-wrap">
+    <button class="tl-toggle-btn" id="tl-toggle" onclick="toggleTimeline()">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      <span>Ver línea de tiempo histórica</span>
+      <i class="fa-solid fa-chevron-down tl-toggle-arr"></i>
+    </button>
+  </div>
+
+  <div class="timeline" id="timeline" style="display:none;">
 
     <!-- 1842 — FOTO -->
     <div class="tl-item tl-left era-1">
@@ -5118,6 +5179,24 @@
 
   /* ?? Hamburger toggle (mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½vil) ?? */
   const hamburger = document.querySelector('.hamburger');
+  /* ── Toggle línea de tiempo ── */
+  function toggleTimeline() {
+    const tl  = document.getElementById('timeline');
+    const btn = document.getElementById('tl-toggle');
+    const lbl = btn.querySelector('span');
+    const open = tl.style.display === 'none' || tl.style.display === '';
+    if (open) {
+      tl.style.display = 'block';
+      btn.classList.add('open');
+      lbl.textContent = 'Ocultar línea de tiempo';
+      setTimeout(initTimeline, 100); // activar animaciones
+    } else {
+      tl.style.display = 'none';
+      btn.classList.remove('open');
+      lbl.textContent = 'Ver línea de tiempo histórica';
+    }
+  }
+
   /* ── Línea de tiempo — animación scroll ── */
   (function(){
     function initTimeline() {
