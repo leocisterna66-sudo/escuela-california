@@ -5093,7 +5093,7 @@
     fetch(CALENDARIO_CSV_URL + '&t=' + Date.now())
       .then(r => r.text())
       .then(text => {
-        const rows = parseCSV(text).slice(2).filter(r => r[0] && r[0].trim() !== '' && r[1] && r[1].trim() !== '');
+        const rows = parseCSV(text).slice(1).filter(r => r[0] && r[0].trim() !== '' && r[0].length < 30 && r[1] && r[1].trim() !== '');
         if (rows.length && calGrid) calGrid.innerHTML = buildCalGrid(rows);
       })
       .catch(() => { /* mantiene los datos estáticos si falla */ });
