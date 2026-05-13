@@ -5535,15 +5535,6 @@
       ${tableHTML}
       <div class="legend">${legHTML}</div>
       <script>window.onload=()=>{window.print();}<\/script>
-      <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(r => console.log('SW registrado:', r.scope))
-          .catch(e => console.log('SW error:', e));
-      });
-    }
-  </script>
 </body></html>`);
     w.document.close();
   }
@@ -6148,6 +6139,13 @@
   showView(initHash);
   window.addEventListener('popstate', () => showView(location.hash.slice(1) || 'inicio'));
 </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function(){});
+      });
+    }
+  </script>
 </body>
 </html>
 
