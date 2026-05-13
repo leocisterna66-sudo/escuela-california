@@ -3228,8 +3228,18 @@
         <div style="flex:1;height:1px;background:var(--border);"></div>
       </div>
       <div id="fb-root"></div>
+      <script>
+        (function() {
+          var wrap = document.getElementById('fb-feed-wrap');
+          var plugin = wrap ? wrap.querySelector('.fb-page') : null;
+          if (plugin) {
+            var w = Math.min(wrap.offsetWidth || window.innerWidth - 48, 500);
+            plugin.setAttribute('data-width', w);
+          }
+        })();
+      </script>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
-      <div style="width:100%;max-width:500px;margin:0 auto;">
+      <div id="fb-feed-wrap" style="width:100%;max-width:500px;margin:0 auto;overflow:hidden;">
         <div class="fb-page"
           data-href="https://www.facebook.com/escuelapatrimonialcalifornia"
           data-tabs="timeline"
