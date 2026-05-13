@@ -1,0 +1,28 @@
+{
+  "name": "Escuela Patrimonial California",
+  "short_name": "EPC Tomé",
+  "description": "Sitio oficial de la Escuela Patrimonial California — Tomé, Biobío",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1a26",
+  "theme_color": "#0e1a26",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "insignia.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "insignia.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education"],
+  "screenshots": []
+}
