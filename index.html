@@ -3201,24 +3201,9 @@
     <div class="section-eyebrow">Novedades</div>
     <h2 class="section-title">Noticias y Avisos</h2>
     <div class="section-line"></div>
-    <div class="news-grid" id="news-grid-dynamic">
-      <!-- Las noticias se cargan desde Google Sheets -->
-      <div class="news-card">
-        <div class="news-thumb nt-1" onclick="openNewsLightbox('noticias/ninos-dentro-de-la-escuela.JPG','Dia Mundial de Concienciacion sobre el Autismo')" style="cursor:zoom-in;"><img src="noticias/ninos-dentro-de-la-escuela.JPG" alt="Dia del Espectro Autista" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-        <div class="news-body"><span class="news-tag tag-g">INCLUSION</span><h3>Dia Mundial de Concienciacion sobre el Autismo</h3><p>Este 2 de abril, nuestra comunidad escolar se unio a la conmemoración mundial con una jornada de sensibilizacion desarrollada en todos los cursos, promoviendo la empatia, el respeto y la valoracion de la diversidad.</p><div class="news-footer"><span class="news-date">2 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
-      </div>
-      <div class="news-card">
-        <div class="news-thumb nt-2" onclick="openNewsLightbox('noticias/caminata recreativa.JPG','Caminata Recreativa - Dia Mundial de la Actividad física')" style="cursor:zoom-in;"><img src="noticias/caminata recreativa.JPG" alt="Caminata Recreativa" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-        <div class="news-body"><span class="news-tag tag-o">VIDA SANA</span><h3>Caminata recreativa por el Dia Mundial de la Actividad física</h3><p>El 7 de abril, estudiantes y docentes participaron en una caminata recreativa organizada en el marco del Dia Mundial de la Actividad física. La iniciativa fue impulsada por el Programa Vida Sana, con el objetivo de fomentar hábitos de vida saludable en nuestra comunidad.</p><div class="news-footer"><span class="news-date">7 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
-      </div>
-      <div class="news-card">
-        <div class="news-thumb nt-3" onclick="openNewsLightbox('noticias/jornada-vacunacion.JPG','Jornada de Vacunacion contra la Influenza')" style="cursor:zoom-in;"><img src="noticias/jornada-vacunacion.JPG" alt="Vacunacion Influenza" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-        <div class="news-body"><span class="news-tag tag-b">SALUD</span><h3>Jornada de Vacunacion contra la Influenza</h3><p>En coordinacion con el equipo de salud del sector, nuestra escuela llevo a cabo la jornada anual de vacunacion contra la influenza. La actividad estuvo dirigida a los estudiantes como parte de las medidas de prevencion y cuidado de la salud de toda la comunidad escolar.</p><div class="news-footer"><span class="news-date">Abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
-      </div>
-    </div>
 
-    <!-- Facebook Feed -->
-    <div style="margin-top:3rem;">
+    <!-- Facebook Feed — al inicio de la sección -->
+    <div style="margin-bottom:3rem;">
       <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem;">
         <div style="flex:1;height:1px;background:var(--border);"></div>
         <div style="display:flex;align-items:center;gap:.5rem;background:#1877f2;color:#fff;padding:.45rem 1.2rem;border-radius:50px;font-size:.82rem;font-weight:700;white-space:nowrap;">
@@ -3250,6 +3235,30 @@
           data-hide-cover="false"
           data-show-facepile="false">
         </div>
+      </div>
+    </div>
+
+    <!-- Noticias del sitio -->
+    <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <div style="display:flex;align-items:center;gap:.5rem;background:var(--verde);color:#fff;padding:.45rem 1.2rem;border-radius:50px;font-size:.82rem;font-weight:700;white-space:nowrap;">
+        <i class="fa-solid fa-bullhorn"></i> Noticias del establecimiento
+      </div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+    <div class="news-grid" id="news-grid-dynamic">
+      <!-- Las noticias se cargan desde Google Sheets -->
+      <div class="news-card">
+        <div class="news-thumb nt-1" onclick="openNewsLightbox('noticias/ninos-dentro-de-la-escuela.JPG','Dia Mundial de Concienciacion sobre el Autismo')" style="cursor:zoom-in;"><img src="noticias/ninos-dentro-de-la-escuela.JPG" alt="Dia del Espectro Autista" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+        <div class="news-body"><span class="news-tag tag-g">INCLUSION</span><h3>Dia Mundial de Concienciacion sobre el Autismo</h3><p>Este 2 de abril, nuestra comunidad escolar se unio a la conmemoración mundial con una jornada de sensibilizacion desarrollada en todos los cursos, promoviendo la empatia, el respeto y la valoracion de la diversidad.</p><div class="news-footer"><span class="news-date">2 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb nt-2" onclick="openNewsLightbox('noticias/caminata recreativa.JPG','Caminata Recreativa - Dia Mundial de la Actividad física')" style="cursor:zoom-in;"><img src="noticias/caminata recreativa.JPG" alt="Caminata Recreativa" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+        <div class="news-body"><span class="news-tag tag-o">VIDA SANA</span><h3>Caminata recreativa por el Dia Mundial de la Actividad física</h3><p>El 7 de abril, estudiantes y docentes participaron en una caminata recreativa organizada en el marco del Dia Mundial de la Actividad física. La iniciativa fue impulsada por el Programa Vida Sana, con el objetivo de fomentar hábitos de vida saludable en nuestra comunidad.</p><div class="news-footer"><span class="news-date">7 de abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb nt-3" onclick="openNewsLightbox('noticias/jornada-vacunacion.JPG','Jornada de Vacunacion contra la Influenza')" style="cursor:zoom-in;"><img src="noticias/jornada-vacunacion.JPG" alt="Vacunacion Influenza" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+        <div class="news-body"><span class="news-tag tag-b">SALUD</span><h3>Jornada de Vacunacion contra la Influenza</h3><p>En coordinacion con el equipo de salud del sector, nuestra escuela llevo a cabo la jornada anual de vacunacion contra la influenza. La actividad estuvo dirigida a los estudiantes como parte de las medidas de prevencion y cuidado de la salud de toda la comunidad escolar.</p><div class="news-footer"><span class="news-date">Abril de 2026</span><a href="#galeria" class="news-more">Ver galeria</a></div></div>
       </div>
     </div>
 
